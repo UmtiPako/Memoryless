@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://baqotm5kqaqkv"]
+
+[ext_resource type="Script" uid="uid://brj86pr30lm" path="res://Scenes/Places/mekan.gd" id="1_m8hee"]
+[ext_resource type="PackedScene" uid="uid://cc2f3uo2nkn21" path="res://People/Player/the_guy.tscn" id="2_61qc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k078"]
+size = Vector2(86, 810)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8hee"]
+size = Vector2(90, 782)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_61qc1"]
+
+[node name="Mekan" type="Node2D"]
+script = ExtResource("1_m8hee")
+
+[node name="Doors" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors"]
+position = Vector2(-574, -14)
+shape = SubResource("RectangleShape2D_3k078")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Doors"]
+position = Vector2(583, -5)
+shape = SubResource("RectangleShape2D_m8hee")
+
+[node name="The_Guy" parent="." instance=ExtResource("2_61qc1")]
+position = Vector2(0, -89)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_61qc1")
+
+[connection signal="body_entered" from="Doors" to="." method="_on_doors_body_entered"]
