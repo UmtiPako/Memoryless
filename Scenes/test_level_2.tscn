@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://coydce14wcth2"]
+
+[ext_resource type="PackedScene" uid="uid://dveu0pak05lbt" path="res://Props/Interactive/Door/door.tscn" id="1_qpu34"]
+[ext_resource type="PackedScene" uid="uid://cc2f3uo2nkn21" path="res://People/Player/the_guy.tscn" id="2_kn8tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwuty"]
+size = Vector2(1424, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cu7ek"]
+
+[node name="test_level2" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(542, 597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_cwuty")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+scale = Vector2(1424, 20)
+mesh = SubResource("BoxMesh_cu7ek")
+
+[node name="The_Guy" parent="." instance=ExtResource("2_kn8tv")]
+position = Vector2(844, 288)
+
+[node name="Door" parent="." instance=ExtResource("1_qpu34")]
+position = Vector2(1, 537)
