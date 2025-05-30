@@ -1,3 +1,5 @@
 [gd_scene format=3 uid="uid://cpm4fi25y34gb"]
 
 [node name="Main" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
