@@ -7,8 +7,10 @@ var scene2: PackedScene = preload("res://Scenes/test_level_2.tscn")
 
 var scenes: Array[PackedScene] = [scene1, scene2]
 
-var player_health: int
+var player_health: int = 4
 
+func _process(delta: float) -> void:
+	pass
 
 func select_random_room() -> PackedScene:
 	return scenes[randf_range(0, len(scenes))]
