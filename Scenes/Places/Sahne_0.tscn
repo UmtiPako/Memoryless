@@ -62,6 +62,7 @@ uv = PackedVector2Array(311.48, 975.5, -17.36, 1085.34, 1242.34, 1123.1, 1921.92
 
 [node name="The_Guy" parent="." node_paths=PackedStringArray("boundary", "camera_2D") instance=ExtResource("4_a2urg")]
 position = Vector2(396, 968)
+HEALTH = 4
 boundary = NodePath("../MoveArea")
 camera_2D = NodePath("../Camera2D")
 

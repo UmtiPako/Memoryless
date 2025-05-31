@@ -1,6 +1,7 @@
 extends Node2D
 @export var main : String  = "res://Scenes/Places/main.tscn"
 
+
 func _ready():
 	
 	pass

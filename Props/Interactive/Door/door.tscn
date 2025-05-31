@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dveu0pak05lbt"]
+[gd_scene load_steps=5 format=3 uid="uid://dveu0pak05lbt"]
 
 [ext_resource type="Script" uid="uid://jvjq65utxj3j" path="res://Props/Interactive/Door/door.gd" id="1_fqgqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6qkm"]
 size = Vector2(26, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqgqb"]
+size = Vector2(8, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b74rf"]
+size = Vector2(9, 340)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_fqgqb")
@@ -12,5 +18,17 @@ script = ExtResource("1_fqgqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_j6qkm")
+
+[node name="SolWolrdBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolWolrdBorder"]
+position = Vector2(-12, 2)
+shape = SubResource("RectangleShape2D_fqgqb")
+
+[node name="SagWorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SagWorldBorder"]
+position = Vector2(13, 0)
+shape = SubResource("RectangleShape2D_b74rf")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
