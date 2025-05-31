@@ -13,5 +13,9 @@ SagEnabled = true
 SolEnabled = true
 SagEnabled = true
 
-[node name="Enemy" parent="." index="5" instance=ExtResource("2_mrxir")]
+[node name="Enemy" parent="." index="5" node_paths=PackedStringArray("navigation_region") instance=ExtResource("2_mrxir")]
 position = Vector2(1441, 923)
+navigation_region = NodePath("../NavigationRegion2D")
+
+[node name="NavigationRegion2D" parent="." index="7"]
+position = Vector2(1, 0)

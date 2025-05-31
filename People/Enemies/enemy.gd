@@ -11,6 +11,7 @@ var is_dead:bool = false
 @export var attack_cooldown: float = 1.5 # Seconds
 @export var enemy_health: int = 5
 @export var can_be_damaged: bool = false
+@export var navigation_region: NavigationRegion2D
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var attack_range_area: Area2D = $Area2D
@@ -66,12 +67,12 @@ func _ready():
 var dash_delay: bool = false
 
 func player_dashed():
-	$DashDelay.start()
-	dash_delay = true
+	if !is_dead:
+		$DashDelay.start()
+		dash_delay = true
 
 func _process(delta: float) -> void:	
-	if !dash_delay:
-		
+	if !dash_delay && !is_dead:
 		if (player.global_position.x < global_position.x):
 				animated_sprite_2d.flip_h = true
 				$Area2D.visible = false
@@ -139,17 +140,16 @@ func _perform_attack():
 		current_state = State.CHASING # Go back to chasing if conditions not met
 		return
 
-	print(name + " attacks player!")
-	# Assuming player has a take_damage method
-	if player.has_method("take_damage"):
-		player.call("take_damage", attack_damage, self.global_position)
-
 	_can_attack = false
 	attack_cooldown_timer.start(attack_cooldown)
 	# If you have an attack animation:
 	_is_attacking = true
 	animated_sprite_2d.play("Attack")
 	await animated_sprite_2d.animation_finished
+		# Assuming player has a take_damage method
+	if player.has_method("take_damage") and _is_player_in_attack_range:
+		player.call("take_damage", attack_damage, self.global_position)
+	
 	_is_attacking = false
 	if current_state != State.DEAD:
 		current_state = State.CHASING # Or IDLE if player moved out of range
@@ -231,23 +231,25 @@ func take_damage():
 	animated_sprite_2d.play("Hurt")
 	var tween2 = create_tween()
 	tween2.tween_method(func(value): modulate = Color.WHITE.lerp(Color.DIM_GRAY, 1.0 - value), 0.0, 1.0, 0.2)
-	
+	await animated_sprite_2d.animation_finished
 	enemy_health -= 1
 	if enemy_health <= 0:
 		_die()
-	await animated_sprite_2d.animation_finished
 
 func _die():
-	
 	enemy_health = -2
-	navigation_agent.navigation_finished.emit()
+	
+	for node in get_children():
+		if node is not AnimatedSprite2D:
+			node.queue_free()
+
+	#navigation_agent.navigation_finished.emit()
 	
 	is_dead = true
 	current_state = State.DEAD
 	animated_sprite_2d.play("Dead")
 	await  animated_sprite_2d.animation_finished
-	pass
-
-
+	
+	
 func _on_dash_delay_timeout() -> void:
 	dash_delay = false
