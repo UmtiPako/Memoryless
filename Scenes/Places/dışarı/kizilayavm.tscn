@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://cn1demdqx2uhh"]
+
+[ext_resource type="PackedScene" uid="uid://cc2f3uo2nkn21" path="res://People/Player/the_guy.tscn" id="1_52sdp"]
+[ext_resource type="Texture2D" uid="uid://c5m8lpwu81q1n" path="res://Scenes/Places/dışarı/assets/HiPaint_1748680255937.png" id="1_x15q1"]
+[ext_resource type="PackedScene" uid="uid://dveu0pak05lbt" path="res://Props/Interactive/Door/door.tscn" id="2_t6452"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="3_ihvqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpde8"]
+size = Vector2(1424, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iti4p"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x15q1"]
+distance = -721.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sytqh"]
+distance = -715.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eglq2"]
+vertices = PackedVector2Array(1016.6, 587.977, 203.031, 587.008, 203.961, 334.617, 1034.33, 303.398)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(194, 325, 193, 597, 1026, 598, 1045, 293)])
+
+[node name="Test_Level" type="Node2D"]
+
+[node name="HiPaint1748680255937" type="Sprite2D" parent="."]
+position = Vector2(626, -48)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_x15q1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(542, 597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_lpde8")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+scale = Vector2(1424, 20)
+mesh = SubResource("BoxMesh_iti4p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_x15q1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_sytqh")
+
+[node name="The_Guy" parent="." instance=ExtResource("1_52sdp")]
+position = Vector2(1081, 156)
+
+[node name="Door" parent="." instance=ExtResource("2_t6452")]
+position = Vector2(1218, 551)
+
+[node name="Enemy" parent="." instance=ExtResource("3_ihvqy")]
+position = Vector2(762, 336)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(0, 17)
+navigation_polygon = SubResource("NavigationPolygon_eglq2")

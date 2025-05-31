@@ -148,6 +148,7 @@ frame = 1
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.65, 0.65)
 
 [node name="letterTimer" type="Timer" parent="."]
 wait_time = 0.048
