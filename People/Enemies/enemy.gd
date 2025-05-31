@@ -69,10 +69,8 @@ func player_dashed():
 	$DashDelay.start()
 	dash_delay = true
 
-
 func _process(delta: float) -> void:	
 	if !dash_delay:
-		
 		
 		if (player.global_position.x < global_position.x):
 				animated_sprite_2d.flip_h = true
@@ -241,10 +239,7 @@ func take_damage():
 
 func _die():
 	
-	var fragment_instance = Fragment.new()
-	add_child(fragment_instance)
-	
-	enemy_health = -1
+	enemy_health = -2
 	navigation_agent.navigation_finished.emit()
 	
 	is_dead = true
@@ -252,3 +247,7 @@ func _die():
 	animated_sprite_2d.play("Dead")
 	await  animated_sprite_2d.animation_finished
 	pass
+
+
+func _on_dash_delay_timeout() -> void:
+	dash_delay = false
