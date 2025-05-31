@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bpi5nvf3680qv" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharRun.png" id="5_2uw73"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vd5c"]
+radius = 73.0
+height = 446.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3wh0p"]
 atlas = ExtResource("2_xribg")
@@ -132,3 +134,5 @@ shape = SubResource("CapsuleShape2D_3vd5c")
 sprite_frames = SubResource("SpriteFrames_4h37l")
 animation = &"Attack"
 frame_progress = 0.946441
+
+[node name="Camera2D" type="Camera2D" parent="."]
