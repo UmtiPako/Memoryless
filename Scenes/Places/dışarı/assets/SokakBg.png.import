@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5m8lpwu81q1n"
-path="res://.godot/imported/HiPaint_1748680255937.png-7be63beee8a647ffb2df7b2528914e74.ctex"
+path="res://.godot/imported/SokakBg.png-07cd3e81ae9d503be662cd880cf9b371.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/dışarı/assets/HiPaint_1748680255937.png"
-dest_files=["res://.godot/imported/HiPaint_1748680255937.png-7be63beee8a647ffb2df7b2528914e74.ctex"]
+source_file="res://Scenes/Places/dışarı/assets/SokakBg.png"
+dest_files=["res://.godot/imported/SokakBg.png-07cd3e81ae9d503be662cd880cf9b371.ctex"]
 
 [params]
 

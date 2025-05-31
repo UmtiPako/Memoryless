@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clx2jt0xg24e7"
-path="res://.godot/imported/HiPaint_1748690447467.png-30be7a7fd950dc02ad1115c5ce31f467.ctex"
+uid="uid://dudakqf00twdt"
+path="res://.godot/imported/PostaKutusu.png-e2a8409712c2ddb37611a8640ff666dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/içeri/assets/HiPaint_1748690447467.png"
-dest_files=["res://.godot/imported/HiPaint_1748690447467.png-30be7a7fd950dc02ad1115c5ce31f467.ctex"]
+source_file="res://Scenes/Places/dışarı/assets/PostaKutusu.png"
+dest_files=["res://.godot/imported/PostaKutusu.png-e2a8409712c2ddb37611a8640ff666dc.ctex"]
 
 [params]
 

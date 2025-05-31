@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dudakqf00twdt"
-path="res://.godot/imported/HiPaint_1748680386383.png-250282000a56b3e1739cedb69519de02.ctex"
+uid="uid://bhr2yi2rd6lg6"
+path="res://.godot/imported/HavluAskısı.png-4aa2c77ca31c576d3ded57caf1972c5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/dışarı/assets/HiPaint_1748680386383.png"
-dest_files=["res://.godot/imported/HiPaint_1748680386383.png-250282000a56b3e1739cedb69519de02.ctex"]
+source_file="res://Scenes/Places/içeri/assets/HavluAskısı.png"
+dest_files=["res://.godot/imported/HavluAskısı.png-4aa2c77ca31c576d3ded57caf1972c5e.ctex"]
 
 [params]
 

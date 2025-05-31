@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://w1ytemwno1i1"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_162tc"]
+[ext_resource type="Texture2D" uid="uid://bw6gv0tbh7rof" path="res://Scenes/Places/içeri/assets/KayganTabela.png" id="2_k5wib"]
+
+[node name="PropBase" instance=ExtResource("1_162tc")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-8.5, -2)
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_k5wib")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+visible = false
+position = Vector2(-5.75, -4)

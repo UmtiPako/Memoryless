@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx7glo2oy1iun"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_wfhj8"]
+[ext_resource type="Texture2D" uid="uid://dudakqf00twdt" path="res://Scenes/Places/dışarı/assets/PostaKutusu.png" id="2_h6yvu"]
+
+[node name="PropBase" instance=ExtResource("1_wfhj8")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = false
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_h6yvu")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(6, 0)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhr2yi2rd6lg6"
-path="res://.godot/imported/HiPaint_1748680384074.png-366acc29202a86ffd54b358117f59d47.ctex"
+uid="uid://clx2jt0xg24e7"
+path="res://.godot/imported/BerberSalonu.png-6520716d7cc51367397df0d126182622.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/içeri/assets/HiPaint_1748680384074.png"
-dest_files=["res://.godot/imported/HiPaint_1748680384074.png-366acc29202a86ffd54b358117f59d47.ctex"]
+source_file="res://Scenes/Places/içeri/assets/BerberSalonu.png"
+dest_files=["res://.godot/imported/BerberSalonu.png-6520716d7cc51367397df0d126182622.ctex"]
 
 [params]
 

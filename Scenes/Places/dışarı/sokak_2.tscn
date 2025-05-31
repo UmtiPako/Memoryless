@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2ix2joog3230"]
+
+[ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_8brxy"]
+[ext_resource type="Texture2D" uid="uid://c5m8lpwu81q1n" path="res://Scenes/Places/dışarı/assets/SokakBg.png" id="2_ieihe"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="3_pcbnl"]
+[ext_resource type="PackedScene" uid="uid://dx7glo2oy1iun" path="res://Props/posta.tscn" id="4_kkypl"]
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="5_d7o8v"]
+
+[node name="Sahne0" instance=ExtResource("1_8brxy")]
+
+[node name="bg" parent="." index="0"]
+texture = ExtResource("2_ieihe")
+
+[node name="Enemy" parent="." index="5" instance=ExtResource("3_pcbnl")]
+position = Vector2(1151, 933)
+scale = Vector2(0.8, 0.8)
+
+[node name="The_Guy" parent="." index="6"]
+scale = Vector2(0.8, 0.8)
+
+[node name="PropBase" parent="." index="9" instance=ExtResource("4_kkypl")]
+position = Vector2(158, 879)
+
+[node name="PropBase2" parent="." index="10" instance=ExtResource("5_d7o8v")]
+position = Vector2(1653, 886)
+
+[node name="PropBase3" parent="." index="11" instance=ExtResource("5_d7o8v")]
+position = Vector2(1349, 888)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwhkxegc4l62h"]
 
 [ext_resource type="Script" uid="uid://cvro6ta85s8t8" path="res://Props/propbase.gd" id="1_30fwv"]
-[ext_resource type="Texture2D" uid="uid://csawtdke088hp" path="res://Scenes/Places/dışarı/assets/HiPaint_1748680385015.png" id="1_oky8h"]
+[ext_resource type="Texture2D" uid="uid://csawtdke088hp" path="res://Scenes/Places/dışarı/assets/CopKutusu.png" id="1_oky8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dh1f3"]
-size = Vector2(92, 126)
+size = Vector2(115, 117.5)
 
 [node name="PropBase" type="RigidBody2D"]
 collision_layer = 4
