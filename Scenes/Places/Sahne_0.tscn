@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://catujxkkpafh6"]
+
+[ext_resource type="Script" uid="uid://bd3il6wlmjtfh" path="res://Scenes/Places/canvas_layer.gd" id="1_k4fmg"]
+[ext_resource type="Texture2D" uid="uid://c0su3l0qli1b2" path="res://UI/drive-download-20250531T100101Z-1-001/HiPaint_1748678913975.png" id="1_npndb"]
+
+[node name="Sahne0" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_k4fmg")
+
+[node name="Heart" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(31.5, 31.5)
+scale = Vector2(0.367188, 0.367188)
+texture = ExtResource("1_npndb")
+
+[node name="Heart2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(83, 31.5)
+scale = Vector2(0.367188, 0.367188)
+texture = ExtResource("1_npndb")
+
+[node name="Heart3" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(133, 31.5)
+scale = Vector2(0.367188, 0.367188)
+texture = ExtResource("1_npndb")
+
+[node name="Heart4" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(183, 31.5)
+scale = Vector2(0.367188, 0.367188)
+texture = ExtResource("1_npndb")
