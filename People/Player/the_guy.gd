@@ -70,14 +70,14 @@ func _physics_process(delta: float) -> void:
 		if velocity.x > 0:
 			# Moving right - face right
 			animated_sprite_2d.scale.x = 1
-			$Area2D.visible = true
-			$Area2D2.visible = false
+			$Area2D/CollisionShape2D.disabled = false
+			$Area2D2/CollisionShape2D.disabled = true
 
 		elif velocity.x < 0:
 			# Moving left - face left
 			animated_sprite_2d.scale.x = -1
-			$Area2D.visible = false
-			$Area2D2.visible = true
+			$Area2D/CollisionShape2D.disabled = true
+			$Area2D2/CollisionShape2D.disabled = false
 		
 		velocity = direction * SPEED
 		if is_dashing:
