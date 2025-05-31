@@ -27,7 +27,7 @@ scale = Vector2(1424, 20)
 mesh = SubResource("BoxMesh_iti4p")
 
 [node name="The_Guy" parent="." instance=ExtResource("1_iti4p")]
-position = Vector2(882, 209)
+position = Vector2(862, 276)
 
 [node name="Door" parent="." instance=ExtResource("2_dtjkg")]
 position = Vector2(1081, 548)
