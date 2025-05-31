@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw17bd0gdhbrd"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_j0ymn"]
+[ext_resource type="Texture2D" uid="uid://blm028h47m45" path="res://Scenes/Places/market/assets/Pasta.png" id="2_6ta5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0ymn"]
+size = Vector2(147, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ta5p"]
+size = Vector2(156, 136)
+
+[node name="PropBase" instance=ExtResource("1_j0ymn")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(7.5, 4.5)
+shape = SubResource("RectangleShape2D_j0ymn")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_6ta5p")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_6ta5p")

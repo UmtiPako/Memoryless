@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c88is0id8spox"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_xmcpe"]
+[ext_resource type="Texture2D" uid="uid://bg3ha5kipsqqs" path="res://Scenes/Places/market/assets/Sprey.png" id="2_8po0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmcpe"]
+size = Vector2(111, 155)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8po0b"]
+size = Vector2(133, 185)
+
+[node name="PropBase" instance=ExtResource("1_xmcpe")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(4.5, 5.5)
+shape = SubResource("RectangleShape2D_xmcpe")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_8po0b")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(2.5, 1.5)
+shape = SubResource("RectangleShape2D_8po0b")

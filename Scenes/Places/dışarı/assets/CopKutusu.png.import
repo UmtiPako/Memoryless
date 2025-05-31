@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csawtdke088hp"
-path="res://.godot/imported/HiPaint_1748680385015.png-69fdd04d63d43c5155b3b3bba67ab0c3.ctex"
+path="res://.godot/imported/CopKutusu.png-03306c355b31b8f9c404258599b0ef2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/dışarı/assets/HiPaint_1748680385015.png"
-dest_files=["res://.godot/imported/HiPaint_1748680385015.png-69fdd04d63d43c5155b3b3bba67ab0c3.ctex"]
+source_file="res://Scenes/Places/dışarı/assets/CopKutusu.png"
+dest_files=["res://.godot/imported/CopKutusu.png-03306c355b31b8f9c404258599b0ef2d.ctex"]
 
 [params]
 

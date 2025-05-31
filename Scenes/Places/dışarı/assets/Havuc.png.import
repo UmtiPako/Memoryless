@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dudakqf00twdt"
-path="res://.godot/imported/HiPaint_1748680386383.png-250282000a56b3e1739cedb69519de02.ctex"
+uid="uid://cljiwejfbdmpb"
+path="res://.godot/imported/Havuc.png-65f43edbfe1b0753e87ef32b7f29a71a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/dışarı/assets/HiPaint_1748680386383.png"
-dest_files=["res://.godot/imported/HiPaint_1748680386383.png-250282000a56b3e1739cedb69519de02.ctex"]
+source_file="res://Scenes/Places/dışarı/assets/Havuc.png"
+dest_files=["res://.godot/imported/Havuc.png-65f43edbfe1b0753e87ef32b7f29a71a.ctex"]
 
 [params]
 

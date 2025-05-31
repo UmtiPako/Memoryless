@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw6gv0tbh7rof"
-path="res://.godot/imported/HiPaint_1748680387643.png-3605b3e73d6aa24aea702a7f918392d3.ctex"
+uid="uid://jbu4bn373yr5"
+path="res://.godot/imported/Şişe.png-bd2fb72383bfb6d69559204925d029e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/içeri/assets/HiPaint_1748680387643.png"
-dest_files=["res://.godot/imported/HiPaint_1748680387643.png-3605b3e73d6aa24aea702a7f918392d3.ctex"]
+source_file="res://Scenes/Places/market/assets/Şişe.png"
+dest_files=["res://.godot/imported/Şişe.png-bd2fb72383bfb6d69559204925d029e9.ctex"]
 
 [params]
 

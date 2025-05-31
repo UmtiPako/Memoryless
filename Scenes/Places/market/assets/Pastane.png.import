@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5m8lpwu81q1n"
-path="res://.godot/imported/HiPaint_1748680255937.png-7be63beee8a647ffb2df7b2528914e74.ctex"
+uid="uid://cs7qs0nx5qt5"
+path="res://.godot/imported/Pastane.png-cb3c1c3e83ecd64bd2c76e2e000dda3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/dışarı/assets/HiPaint_1748680255937.png"
-dest_files=["res://.godot/imported/HiPaint_1748680255937.png-7be63beee8a647ffb2df7b2528914e74.ctex"]
+source_file="res://Scenes/Places/market/assets/Pastane.png"
+dest_files=["res://.godot/imported/Pastane.png-cb3c1c3e83ecd64bd2c76e2e000dda3e.ctex"]
 
 [params]
 

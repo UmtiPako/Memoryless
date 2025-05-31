@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf5alvrpvky6n"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_07co6"]
+[ext_resource type="Texture2D" uid="uid://cljiwejfbdmpb" path="res://Scenes/Places/dışarı/assets/Havuc.png" id="2_x0gli"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07co6"]
+radius = 31.7341
+height = 183.61
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0gli"]
+radius = 37.744
+height = 199.722
+
+[node name="PropBase" instance=ExtResource("1_07co6")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(3, 3)
+rotation = 0.598648
+shape = SubResource("CapsuleShape2D_07co6")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_x0gli")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(3, 2)
+rotation = 0.598648
+shape = SubResource("CapsuleShape2D_x0gli")

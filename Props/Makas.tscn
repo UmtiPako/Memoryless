@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvqo2npvvf3i1"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_fsvk2"]
+[ext_resource type="Texture2D" uid="uid://bym7k1gulagx5" path="res://Scenes/Places/içeri/assets/Scissors.png" id="2_5mrnk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsvk2"]
+size = Vector2(129, 165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mrnk"]
+size = Vector2(145, 199)
+
+[node name="PropBase" instance=ExtResource("1_fsvk2")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-1.5, 14.5)
+shape = SubResource("RectangleShape2D_fsvk2")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_5mrnk")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(-0.5, 9.5)
+shape = SubResource("RectangleShape2D_5mrnk")

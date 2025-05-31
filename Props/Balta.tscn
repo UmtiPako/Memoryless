@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8bmwdbyc54lg"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_8i8il"]
+[ext_resource type="Texture2D" uid="uid://bukcg28tprc6g" path="res://Scenes/Places/market/assets/Balta.png" id="2_wqp6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i8il"]
+size = Vector2(271, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqp6r"]
+size = Vector2(291, 127)
+
+[node name="PropBase" instance=ExtResource("1_8i8il")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, 7)
+shape = SubResource("RectangleShape2D_8i8il")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_wqp6r")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_wqp6r")

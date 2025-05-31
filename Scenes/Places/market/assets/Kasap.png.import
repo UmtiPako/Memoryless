@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clx2jt0xg24e7"
-path="res://.godot/imported/HiPaint_1748690447467.png-30be7a7fd950dc02ad1115c5ce31f467.ctex"
+uid="uid://ci3hwd6xb8xwe"
+path="res://.godot/imported/Kasap.png-e6d7e442ae2b575025da82e669218615.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/içeri/assets/HiPaint_1748690447467.png"
-dest_files=["res://.godot/imported/HiPaint_1748690447467.png-30be7a7fd950dc02ad1115c5ce31f467.ctex"]
+source_file="res://Scenes/Places/market/assets/Kasap.png"
+dest_files=["res://.godot/imported/Kasap.png-e6d7e442ae2b575025da82e669218615.ctex"]
 
 [params]
 

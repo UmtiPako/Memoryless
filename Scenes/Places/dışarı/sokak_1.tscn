@@ -1,16 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca2vy2ph6c3q4"]
+[gd_scene load_steps=6 format=3 uid="uid://ca2vy2ph6c3q4"]
 
 [ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_u7xv0"]
-[ext_resource type="Texture2D" uid="uid://c5m8lpwu81q1n" path="res://Scenes/Places/dışarı/assets/HiPaint_1748680255937.png" id="2_3vkd7"]
-[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="3_yr05y"]
+[ext_resource type="Texture2D" uid="uid://c5m8lpwu81q1n" path="res://Scenes/Places/dışarı/assets/SokakBg.png" id="2_3vkd7"]
+[ext_resource type="PackedScene" uid="uid://dx7glo2oy1iun" path="res://Props/posta.tscn" id="4_vgvij"]
+[ext_resource type="PackedScene" uid="uid://8vxdspuv1lcj" path="res://Props/Cop.tscn" id="5_8am5a"]
+[ext_resource type="PackedScene" uid="uid://cmik73bnmdtnk" path="res://Props/HavluAskılığı.tscn" id="5_jvxfm"]
 
 [node name="Sokak1" instance=ExtResource("1_u7xv0")]
 
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_3vkd7")
 
-[node name="PropBase" parent="." index="5" instance=ExtResource("3_yr05y")]
-position = Vector2(791, 925)
+[node name="The_Guy" parent="." index="5"]
+scale = Vector2(0.8, 0.8)
 
-[node name="NavigationRegion2D" parent="." index="7"]
+[node name="NavigationRegion2D" parent="." index="6"]
 position = Vector2(1, 6)
+
+[node name="PropBase2" parent="." index="8" instance=ExtResource("4_vgvij")]
+position = Vector2(1347, 892)
+
+[node name="PropBase3" parent="." index="9" instance=ExtResource("5_jvxfm")]
+position = Vector2(575, 892)
+
+[node name="PropBase" parent="." index="10" instance=ExtResource("5_8am5a")]
+position = Vector2(998, 880)

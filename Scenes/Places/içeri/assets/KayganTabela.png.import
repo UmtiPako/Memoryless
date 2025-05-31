@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhr2yi2rd6lg6"
-path="res://.godot/imported/HiPaint_1748680384074.png-366acc29202a86ffd54b358117f59d47.ctex"
+uid="uid://bw6gv0tbh7rof"
+path="res://.godot/imported/KayganTabela.png-87c351ef6a53fdd3fa5ed6025586fede.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/içeri/assets/HiPaint_1748680384074.png"
-dest_files=["res://.godot/imported/HiPaint_1748680384074.png-366acc29202a86ffd54b358117f59d47.ctex"]
+source_file="res://Scenes/Places/içeri/assets/KayganTabela.png"
+dest_files=["res://.godot/imported/KayganTabela.png-87c351ef6a53fdd3fa5ed6025586fede.ctex"]
 
 [params]
 
