@@ -24,4 +24,4 @@ mesh = SubResource("BoxMesh_cu7ek")
 position = Vector2(844, 288)
 
 [node name="Door" parent="." instance=ExtResource("1_qpu34")]
-position = Vector2(1, 537)
+position = Vector2(97, 539)
