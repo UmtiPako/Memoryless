@@ -1,10 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://cc2f3uo2nkn21"]
+[gd_scene load_steps=22 format=3 uid="uid://cc2f3uo2nkn21"]
 
 [ext_resource type="Script" uid="uid://dt4i7cuwaf750" path="res://People/Player/the_guy.gd" id="1_rv1v6"]
 [ext_resource type="Texture2D" uid="uid://8un4xjovf1go" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharPunch.png" id="2_xribg"]
 [ext_resource type="Texture2D" uid="uid://c74fasm3prt50" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharHurt.png" id="3_2hk54"]
 [ext_resource type="Texture2D" uid="uid://2gwrtbuddqij" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharIdle.png" id="4_4l4ro"]
 [ext_resource type="Texture2D" uid="uid://bpi5nvf3680qv" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharRun.png" id="5_2uw73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xribg"]
+size = Vector2(101, 121)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vd5c"]
 radius = 73.0
@@ -127,15 +130,28 @@ animations = [{
 [node name="The_Guy" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rv1v6")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(96, 16)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(28.5, 5.5)
+shape = SubResource("RectangleShape2D_xribg")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3vd5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4h37l")
-animation = &"Walk"
+animation = &"Attack"
+frame = 1
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.65, 0.65)
 
 [node name="hittedTimer" type="Timer" parent="."]
 wait_time = 0.334
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

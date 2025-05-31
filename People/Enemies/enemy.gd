@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var attack_damage: int = 1
 @export var attack_range_distance: float = 20.0 # Should match AttackRange's shape
 @export var attack_cooldown: float = 1.5 # Seconds
+@export var enemy_health: int = 5
+@export var can_be_damaged: bool = false
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var attack_range_area: Area2D = $Area2D
@@ -23,8 +25,6 @@ enum State { IDLE, CHASING, ATTACKING }
 var current_state: State = State.IDLE
 
 func _ready():
-	# Add to enemies group for easier management if needed
-	add_to_group("enemies")
 
 	# Attempt to find the player immediately
 	# More robust: have spawner or game manager assign the player
@@ -65,7 +65,10 @@ func _physics_process(_delta: float):
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-
+	
+	if animated_sprite_2d.animation == "Hurt":
+		await animated_sprite_2d.animation_finished
+	
 	match current_state:
 		State.IDLE:
 			# Optionally, transition to CHASING if player is detected nearby
@@ -168,3 +171,8 @@ func set_target(target_node: Node2D):
 		_update_navigation_target() # Initial path calculation
 	else:
 		current_state = State.IDLE
+
+func take_damage():
+	animated_sprite_2d.play("Hurt")
+	enemy_health -= 1
+	await animated_sprite_2d.animation_finished

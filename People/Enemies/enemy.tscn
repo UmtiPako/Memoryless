@@ -89,7 +89,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g8tdr")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -100,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u06v2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hurt",
 "speed": 5.0
 }, {
@@ -151,7 +151,7 @@ position = Vector2(-1.07288e-06, 1.90735e-06)
 scale = Vector2(10, 7.5)
 mesh = SubResource("CapsuleMesh_ne65n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
 shape = SubResource("CapsuleShape2D_hghv2")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -173,4 +173,8 @@ autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l4846")
-animation = &"Idle"
+animation = &"Hurt"
+frame = 1
+frame_progress = 1.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
