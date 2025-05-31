@@ -4,6 +4,9 @@
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_right = 0.406771
+anchor_bottom = 0.425926
 offset_left = -37.0
 offset_top = -37.0
 offset_right = 1186.0
