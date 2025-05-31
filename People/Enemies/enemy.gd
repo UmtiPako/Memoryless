@@ -29,6 +29,10 @@ enum State { IDLE, CHASING, ATTACKING ,DEAD}
 var current_state: State = State.IDLE
 
 func _ready():
+	
+	move_speed = randf_range(70,120)
+	GameManager.player_dashed.connect(player_dashed)
+	
 	# Attempt to find the player immediately
 	# More robust: have spawner or game manager assign the player
 	var player_nodes = get_tree().get_nodes_in_group("player")
@@ -59,17 +63,25 @@ func _ready():
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
 	nav_update_timer.timeout.connect(_on_nav_update_timer_timeout)
 
+var dash_delay: bool = false
+
+func player_dashed():
+	$DashDelay.start()
+	dash_delay = true
+
 
 func _process(delta: float) -> void:	
-	
-	if (player.global_position.x < global_position.x):
-			animated_sprite_2d.flip_h = true
-			$Area2D.visible = false
-			$Area2D2.visible = true
-	else:
-			animated_sprite_2d.flip_h = false
-			$Area2D.visible = true
-			$Area2D2.visible = false		
+	if !dash_delay:
+		
+		
+		if (player.global_position.x < global_position.x):
+				animated_sprite_2d.flip_h = true
+				$Area2D.visible = false
+				$Area2D2.visible = true
+		else:
+				animated_sprite_2d.flip_h = false
+				$Area2D.visible = true
+				$Area2D2.visible = false		
 	
 	update_layer_by_position()
 
@@ -97,8 +109,7 @@ func _physics_process(_delta: float):
 		State.CHASING:
 			if _is_player_in_attack_range and _can_attack and animated_sprite_2d.animation != "Hurt":
 				current_state = State.ATTACKING
-				if not is_dead:
-					_perform_attack()
+				_perform_attack()
 			else:
 				if navigation_agent.is_navigation_finished():
 					# Reached player or cannot reach, stop moving
@@ -119,8 +130,6 @@ func _physics_process(_delta: float):
 			# For now, _perform_attack handles transition to cooldown.
 			velocity = Vector2.ZERO # Stop moving while attacking
 			move_and_slide()
-		State.DEAD:
-			velocity = Vector2.ZERO
 
 
 func _update_navigation_target():

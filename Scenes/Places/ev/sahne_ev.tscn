@@ -14,4 +14,4 @@ SolEnabled = true
 SagEnabled = true
 
 [node name="Enemy" parent="." index="5" instance=ExtResource("2_mrxir")]
-position = Vector2(1434, 956)
+position = Vector2(1441, 923)
