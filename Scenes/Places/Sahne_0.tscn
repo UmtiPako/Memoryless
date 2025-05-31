@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://catujxkkpafh6"]
 
-[ext_resource type="Texture2D" uid="uid://dq8gshvki2dfa" path="res://Scenes/Places/dışarı/assets/HiPaint_1748688193680.png" id="1_7m55f"]
+[ext_resource type="Texture2D" uid="uid://dq8gshvki2dfa" path="res://Scenes/Places/ev/assets/HiPaint_1748688193680.png" id="1_7m55f"]
 [ext_resource type="Script" uid="uid://bd3il6wlmjtfh" path="res://Scenes/Places/canvas_layer.gd" id="1_k4fmg"]
 [ext_resource type="Texture2D" uid="uid://c0su3l0qli1b2" path="res://UI/drive-download-20250531T100101Z-1-001/HiPaint_1748678913975.png" id="1_npndb"]
 [ext_resource type="PackedScene" uid="uid://dveu0pak05lbt" path="res://Props/Interactive/Door/door.tscn" id="3_fkll0"]
