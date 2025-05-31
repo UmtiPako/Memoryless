@@ -1,10 +1,126 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc2f3uo2nkn21"]
+[gd_scene load_steps=21 format=3 uid="uid://cc2f3uo2nkn21"]
 
 [ext_resource type="Script" uid="uid://dt4i7cuwaf750" path="res://People/Player/the_guy.gd" id="1_rv1v6"]
+[ext_resource type="Texture2D" uid="uid://8un4xjovf1go" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharPunch.png" id="2_xribg"]
+[ext_resource type="Texture2D" uid="uid://c74fasm3prt50" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharHurt.png" id="3_2hk54"]
+[ext_resource type="Texture2D" uid="uid://2gwrtbuddqij" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharIdle.png" id="4_4l4ro"]
+[ext_resource type="Texture2D" uid="uid://bpi5nvf3680qv" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharRun.png" id="5_2uw73"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vd5c"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vd5c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wh0p"]
+atlas = ExtResource("2_xribg")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw0st"]
+atlas = ExtResource("2_xribg")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gimns"]
+atlas = ExtResource("3_2hk54")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eualc"]
+atlas = ExtResource("3_2hk54")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k0cw"]
+atlas = ExtResource("4_4l4ro")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ll8n"]
+atlas = ExtResource("4_4l4ro")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ok1f"]
+atlas = ExtResource("4_4l4ro")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjvpi"]
+atlas = ExtResource("5_2uw73")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffyof"]
+atlas = ExtResource("5_2uw73")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc2h2"]
+atlas = ExtResource("5_2uw73")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dks6k"]
+atlas = ExtResource("5_2uw73")
+region = Rect2(1500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x10t"]
+atlas = ExtResource("5_2uw73")
+region = Rect2(2000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa0p4"]
+atlas = ExtResource("5_2uw73")
+region = Rect2(2500, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4h37l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wh0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw0st")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gimns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eualc")
+}],
+"loop": true,
+"name": &"Get_Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k0cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ll8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ok1f")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjvpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffyof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc2h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dks6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x10t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa0p4")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
 
 [node name="The_Guy" type="CharacterBody2D"]
 script = ExtResource("1_rv1v6")
@@ -13,8 +129,6 @@ script = ExtResource("1_rv1v6")
 shape = SubResource("CapsuleShape2D_3vd5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(0, 1.90735e-06)
-scale = Vector2(20, 15)
-mesh = SubResource("CapsuleMesh_3vd5c")
+sprite_frames = SubResource("SpriteFrames_4h37l")
+animation = &"Attack"
+frame_progress = 0.946441
