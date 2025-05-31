@@ -58,6 +58,7 @@ boundary_polygon_node_path = NodePath("Polygon2D")
 
 [node name="Polygon2D" type="Polygon2D" parent="MoveArea"]
 position = Vector2(4, 4)
+color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(33, 1073, 1882, 1076, 1839, 910, 306, 910)
 uv = PackedVector2Array(311.48, 975.5, -17.36, 1085.34, 1242.34, 1123.1, 1921.92, 1131.14, 1792.42, 945.44, 369.32, 968.94, 312.32, 976.44)
 

@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var attack_range_area: Area2D = $Area2D
+@onready var attack_range_area2: Area2D = $Area2D2
 @onready var attack_cooldown_timer: Timer = $AttackTimer
 @onready var nav_update_timer: Timer = $NavTimer
 # @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D # If you have animations
@@ -37,14 +38,22 @@ func _ready():
 
 	# Configure AttackRange Area2D's collision shape radius if needed
 	# (Alternatively, set it in the editor and ensure attack_range_distance matches)
-	if attack_range_area.get_child(0) is CollisionShape2D:
+	if attack_range_area.get_child(0) is CollisionShape2D or attack_range_area2.get_child(0) is CollisionShape2D:
 		var shape = attack_range_area.get_child(0).shape
+		var shape2 = attack_range_area2.get_child(0).shape
+		
 		if shape is CircleShape2D:
 			shape.radius = attack_range_distance
+		elif shape2 is CircleShape2D:
+			shape2.radius = attack_range_distance
 		# Add similar for RectangleShape2D if you use that
 
 	attack_range_area.body_entered.connect(_on_attack_range_body_entered)
 	attack_range_area.body_exited.connect(_on_attack_range_body_exited)
+	
+	attack_range_area2.body_entered.connect(_on_attack_range_body_entered)
+	attack_range_area2.body_exited.connect(_on_attack_range_body_exited)
+	
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
 	nav_update_timer.timeout.connect(_on_nav_update_timer_timeout)
 
@@ -120,7 +129,7 @@ func _perform_attack():
 	print(name + " attacks player!")
 	# Assuming player has a take_damage method
 	if player.has_method("take_damage"):
-		player.call("take_damage", attack_damage)
+		player.call("take_damage", attack_damage, self.global_position)
 
 	_can_attack = false
 	attack_cooldown_timer.start(attack_cooldown)
@@ -195,7 +204,16 @@ func set_target(target_node: Node2D):
 
 func take_damage():
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", Vector2(self.position.x +  30, self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	var direction = -1
+	
+	if player.global_position.x - self.global_position.x < 0:
+		direction = 1
+	
+	tween.tween_property(self, "global_position", Vector2(self.position.x +  30 * direction, self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	animated_sprite_2d.play("Hurt")
+	var tween2 = create_tween()
+	tween2.tween_method(func(value): modulate = Color.WHITE.lerp(Color.DIM_GRAY, 1.0 - value), 0.0, 1.0, 0.2)
+	
 	enemy_health -= 1
 	await animated_sprite_2d.animation_finished
