@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://catujxkkpafh6"]
+[gd_scene load_steps=7 format=3 uid="uid://catujxkkpafh6"]
 
+[ext_resource type="Texture2D" uid="uid://dq8gshvki2dfa" path="res://Scenes/Places/dışarı/assets/HiPaint_1748688193680.png" id="1_7m55f"]
 [ext_resource type="Script" uid="uid://bd3il6wlmjtfh" path="res://Scenes/Places/canvas_layer.gd" id="1_k4fmg"]
 [ext_resource type="Texture2D" uid="uid://c0su3l0qli1b2" path="res://UI/drive-download-20250531T100101Z-1-001/HiPaint_1748678913975.png" id="1_npndb"]
+[ext_resource type="PackedScene" uid="uid://dveu0pak05lbt" path="res://Props/Interactive/Door/door.tscn" id="3_fkll0"]
+[ext_resource type="PackedScene" uid="uid://cc2f3uo2nkn21" path="res://People/Player/the_guy.tscn" id="4_a2urg"]
+[ext_resource type="Script" uid="uid://b6ngvjh0h8rot" path="res://Scenes/Places/move_area.gd" id="5_8s7n7"]
 
 [node name="Sahne0" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_7m55f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_k4fmg")
@@ -27,3 +35,24 @@ texture = ExtResource("1_npndb")
 position = Vector2(183, 31.5)
 scale = Vector2(0.367188, 0.367188)
 texture = ExtResource("1_npndb")
+
+[node name="Door" parent="." instance=ExtResource("3_fkll0")]
+position = Vector2(-8, 548)
+scale = Vector2(2.41368, 17.0104)
+
+[node name="Door2" parent="." instance=ExtResource("3_fkll0")]
+position = Vector2(1909, 554)
+scale = Vector2(2.41368, 17.0104)
+
+[node name="MoveArea" type="Node2D" parent="."]
+script = ExtResource("5_8s7n7")
+boundary_polygon_node_path = NodePath("Polygon2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="MoveArea"]
+position = Vector2(4, -204)
+polygon = PackedVector2Array(33, 1073, 1882, 1076, 1839, 910, 306, 910)
+uv = PackedVector2Array(311.48, 975.5, -17.36, 1085.34, 1242.34, 1123.1, 1921.92, 1131.14, 1792.42, 945.44, 369.32, 968.94, 312.32, 976.44)
+
+[node name="The_Guy" parent="." node_paths=PackedStringArray("boundary") instance=ExtResource("4_a2urg")]
+position = Vector2(719, 719)
+boundary = NodePath("../MoveArea")
