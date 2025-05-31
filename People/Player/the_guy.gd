@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
 	
-	if Input.is_action_just_pressed("ui_accept") && animated_sprite_2d.animation != "Get_Hit":
+	if Input.is_action_just_pressed("attack") && animated_sprite_2d.animation != "Get_Hit":
 		attack()
 
 		
