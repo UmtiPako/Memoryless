@@ -12,5 +12,5 @@ texture = ExtResource("2_3vkd7")
 [node name="PropBase" parent="." index="5" instance=ExtResource("3_yr05y")]
 position = Vector2(791, 925)
 
-[node name="NavigationRegion2D" parent="." index="8"]
+[node name="NavigationRegion2D" parent="." index="7"]
 position = Vector2(1, 6)
