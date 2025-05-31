@@ -5,11 +5,30 @@ var is_taking_hit : bool = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dialogue: Label = $Dialogue
 
 @export var HEALTH = 4
 
 var lookin_right : bool = true
 var size_swap_reset:bool = false
+
+func _ready() -> void:
+	display_dialogue("Selamünaleyküm deniz şeker")
+	
+
+func display_dialogue(text: String):
+	for letter in text:
+		dialogue.text += letter
+		$letterTimer.start()
+		await $letterTimer.timeout
+	var tween = create_tween()
+	tween.tween_property(dialogue, "modulate:a", 0, 0.5)
+	await tween.finished
+	dialogue.text = " "
+
+	
+func display_random_dialogue(text: Array[String]):
+	pass
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
