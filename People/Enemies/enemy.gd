@@ -31,7 +31,8 @@ var current_state: State = State.IDLE
 
 func _ready():
 	
-	move_speed = randf_range(70,120)
+	move_speed = randf_range(100,150)
+	$DashDelay.wait_time = randf_range(0.8, 1.4)
 	GameManager.player_dashed.connect(player_dashed)
 	
 	# Attempt to find the player immediately
