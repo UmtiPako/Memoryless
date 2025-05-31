@@ -25,22 +25,21 @@ enum State { IDLE, CHASING, ATTACKING }
 var current_state: State = State.IDLE
 
 func _ready():
-
 	# Attempt to find the player immediately
 	# More robust: have spawner or game manager assign the player
 	var player_nodes = get_tree().get_nodes_in_group("player")
 	if not player_nodes.is_empty():
 		player = player_nodes[0] as CharacterBody2D # Cast to Node2D or your player type
+		var direction = player.position.x - self.position.x
+		if sign(direction) == -1:
+			self.scale.x = -1
+		else:
+			self.scale.x = 1
 	else:
 		printerr("Enemy couldn't find player!")
 		# queue_free() # Or handle appropriately
 		
-	var direction = player.position.x - self.position.x
-	
-	if sign(direction) == -1:
-		self.scale.x = -1
-	else:
-		self.scale.x = 1
+
 
 	# Configure AttackRange Area2D's collision shape radius if needed
 	# (Alternatively, set it in the editor and ensure attack_range_distance matches)
@@ -78,7 +77,7 @@ func _physics_process(_delta: float):
 				_update_navigation_target() # Start chasing
 
 		State.CHASING:
-			if _is_player_in_attack_range and _can_attack:
+			if _is_player_in_attack_range and _can_attack and animated_sprite_2d.animation != "Hurt":
 				current_state = State.ATTACKING
 				_perform_attack()
 			else:
@@ -173,6 +172,8 @@ func set_target(target_node: Node2D):
 		current_state = State.IDLE
 
 func take_damage():
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", Vector2(self.position.x + 50 / enemy_health, self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	animated_sprite_2d.play("Hurt")
 	enemy_health -= 1
 	await animated_sprite_2d.animation_finished

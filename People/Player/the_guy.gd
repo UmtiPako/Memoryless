@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") && animated_sprite_2d.animation != "Get_Hit":
 		attack()
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -63,13 +63,19 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damageTaken: int):
 	animated_sprite_2d.play("Get_Hit")
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", Vector2(self.position.x +  -sign(self.scale.x) * (50 / HEALTH), self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	HEALTH -= damageTaken
 	await animated_sprite_2d.animation_finished
 	
 
 func attack():
 	animated_sprite_2d.play("Attack")
+	if $Area2D.has_overlapping_bodies():
+		$Camera2D.apply_shake()
+		
 	for enemy in $Area2D.get_overlapping_bodies():
-		if enemy.has_method("take_damage"):
-			enemy.call("take_damage") 
-	await animated_sprite_2d.animation_finished
+		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
+			enemy.call("take_damage")
+
+	
