@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://row2hkiqfmgr"]
+[gd_scene load_steps=3 format=3 uid="uid://row2hkiqfmgr"]
 
 [ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_qn751"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="2_mrxir"]
 
 [node name="SahneEv" instance=ExtResource("1_qn751")]
 
@@ -11,3 +12,6 @@ SagEnabled = true
 [node name="Door2" parent="." index="3"]
 SolEnabled = true
 SagEnabled = true
+
+[node name="Enemy" parent="." index="5" instance=ExtResource("2_mrxir")]
+position = Vector2(1441, 923)
