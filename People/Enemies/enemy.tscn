@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bif4i1b6swes2"]
+
+[ext_resource type="Script" uid="uid://do2mmx6xxf5o5" path="res://People/Enemies/enemy.gd" id="1_oaxwq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oaxwq"]
+albedo_color = Color(0.636034, 0.2583, 0.305017, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ne65n"]
+material = SubResource("StandardMaterial3D_oaxwq")
+radius = 1.0
+height = 4.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hghv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
+size = Vector2(20, 10)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_oaxwq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-1.07288e-06, 1.90735e-06)
+scale = Vector2(10, 7.5)
+mesh = SubResource("CapsuleMesh_ne65n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hghv2")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-14, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1f0kj")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="NavTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true

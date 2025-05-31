@@ -1,12 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpothk50tipvy"]
+[gd_scene load_steps=7 format=3 uid="uid://cpothk50tipvy"]
 
 [ext_resource type="PackedScene" uid="uid://cc2f3uo2nkn21" path="res://People/Player/the_guy.tscn" id="1_iti4p"]
 [ext_resource type="PackedScene" uid="uid://dveu0pak05lbt" path="res://Props/Interactive/Door/door.tscn" id="2_dtjkg"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="3_eglq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpde8"]
 size = Vector2(1424, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_iti4p"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eglq2"]
+vertices = PackedVector2Array(994.547, 593.828, 513.953, 587.156, 514.352, 584.977, 993.242, 584.008)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(506, 575, 502, 597, 1006, 604, 1002, 574)])
 
 [node name="Test_Level" type="Node2D"]
 
@@ -21,7 +27,13 @@ scale = Vector2(1424, 20)
 mesh = SubResource("BoxMesh_iti4p")
 
 [node name="The_Guy" parent="." instance=ExtResource("1_iti4p")]
-position = Vector2(403, 153)
+position = Vector2(882, 209)
 
 [node name="Door" parent="." instance=ExtResource("2_dtjkg")]
 position = Vector2(1081, 548)
+
+[node name="Enemy" parent="." instance=ExtResource("3_eglq2")]
+position = Vector2(596, 563)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_eglq2")
