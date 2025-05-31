@@ -7,7 +7,6 @@ const JUMP_VELOCITY = -400.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dialogue: Label = $Dialogue
 
-@export var HEALTH = 4
 @export var boundary: MovementArea
 
 @export var camera_2D : Camera2D
@@ -71,7 +70,7 @@ func take_damage(damageTaken: int):
 	animated_sprite_2d.play("Get_Hit")
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", Vector2(self.position.x +  -sign(self.scale.x) * (30), self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	HEALTH -= damageTaken
+	GameManager.player_health -= damageTaken
 	await animated_sprite_2d.animation_finished
 	
 
