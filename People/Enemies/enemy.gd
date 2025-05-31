@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var move_speed: float = 70.0
-@export var attack_damage: int = 10
+@export var attack_damage: int = 1
 @export var attack_range_distance: float = 20.0 # Should match AttackRange's shape
 @export var attack_cooldown: float = 1.5 # Seconds
 
