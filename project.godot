@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="A_World_Without_Memories"
+run/main_scene="uid://c1h2lljn02je5"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -18,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameManager="*res://GameManager.gd"
 AnimationManager="*res://AnimationManager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [rendering]
 

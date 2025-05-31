@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 @onready var dialogue: Label = $Dialogue
 
 @export var HEALTH = 4
+@export var boundary: MovementArea
 
 var lookin_right : bool = true
 var size_swap_reset:bool = false
@@ -32,15 +33,15 @@ func display_random_dialogue(text: Array[String]):
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	#if not is_on_floor():
+	#	velocity += get_gravity() * delta
 	
 	if Input.is_action_just_pressed("ui_accept") && animated_sprite_2d.animation != "Get_Hit":
 		attack()
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_vector("ui_left", "ui_right","ui_up","ui_down")
 	if direction:
 		if velocity.x > 0:
 			# Moving right - face right
@@ -49,17 +50,20 @@ func _physics_process(delta: float) -> void:
 			# Moving left - face left
 			animated_sprite_2d.scale.x = -1
 		
-		velocity.x = direction * SPEED
+		velocity = direction * SPEED
 		animated_sprite_2d.play("Walk")
 	else:
 		if (animated_sprite_2d.animation == "Get_Hit" || animated_sprite_2d.animation == "Attack" ):
 			await animated_sprite_2d.animation_finished
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 		animated_sprite_2d.play("Idle")
 		size_swap_reset = true 
 	
 	
 	move_and_slide()
+	if boundary:
+		global_position = boundary.clamp_global_position(global_position)
 
 func take_damage(damageTaken: int):
 	animated_sprite_2d.play("Get_Hit")
