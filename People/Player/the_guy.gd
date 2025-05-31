@@ -10,7 +10,6 @@ const DASH_SPEED = 800.0
 
 var dash_direction := Vector2.ZERO
 
-@export var HEALTH = 4
 @export var boundary: MovementArea
 
 @export var camera_2D : Camera2D
@@ -56,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
 	
-	if Input.is_action_just_pressed("ui_accept") && animated_sprite_2d.animation != "Get_Hit":
+	if Input.is_action_just_pressed("attack") && animated_sprite_2d.animation != "Get_Hit":
 		attack()
 
 		
@@ -118,7 +117,7 @@ func take_damage(damageTaken: int, enemy_pos: Vector2):
 		direction = -1
 	
 	tween.tween_property(self, "global_position", Vector2(self.position.x + (30 * direction), self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	HEALTH -= damageTaken
+	GameManager.player_health -= damageTaken
 	await animated_sprite_2d.animation_finished
 
 
