@@ -179,6 +179,9 @@ position = Vector2(0, -197)
 sprite_frames = SubResource("SpriteFrames_4h37l")
 animation = &"Idle"
 
+[node name="dashTimer" type="Timer" parent="."]
+wait_time = 0.288
+
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

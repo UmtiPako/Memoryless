@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlgfq15w5joum"]
+
+[ext_resource type="Script" uid="uid://dro43qa68nxwq" path="res://Props/Interactive/Fragment/fragment.gd" id="1_iblex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkq0q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iblex"]
+
+[node name="Area_2" type="Area2D"]
+script = ExtResource("1_iblex")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dkq0q")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.880604, 0, 0.433471, 1)
+rotation = 0.785398
+scale = Vector2(16, 16)
+mesh = SubResource("BoxMesh_iblex")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

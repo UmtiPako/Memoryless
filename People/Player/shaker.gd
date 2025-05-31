@@ -2,7 +2,6 @@ extends Camera2D
 
 @export var random_strenght: float = 10.0
 @export var shakeFade: float = 5
-@onready var shake_timer: Timer = $"../shakeTimer"
 
 var rng = RandomNumberGenerator.new()
 

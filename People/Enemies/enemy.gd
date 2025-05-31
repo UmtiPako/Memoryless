@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var is_dead:bool = false
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var playerL: PackedScene
@@ -23,10 +25,14 @@ var _can_attack: bool = true
 var _is_attacking: bool = false # To prevent moving while in attack animation
 
 # A simple state machine could be more robust, but this works for now
-enum State { IDLE, CHASING, ATTACKING }
+enum State { IDLE, CHASING, ATTACKING ,DEAD}
 var current_state: State = State.IDLE
 
 func _ready():
+	
+	move_speed = randf_range(70,120)
+	GameManager.player_dashed.connect(player_dashed)
+	
 	# Attempt to find the player immediately
 	# More robust: have spawner or game manager assign the player
 	var player_nodes = get_tree().get_nodes_in_group("player")
@@ -57,16 +63,26 @@ func _ready():
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
 	nav_update_timer.timeout.connect(_on_nav_update_timer_timeout)
 
+var dash_delay: bool = false
+
+func player_dashed():
+	$DashDelay.start()
+	dash_delay = true
+
 
 func _process(delta: float) -> void:	
-	if (player.global_position.x < global_position.x):
-			animated_sprite_2d.flip_h = true
-			$Area2D.visible = false
-			$Area2D2.visible = true
-	else:
-			animated_sprite_2d.flip_h = false
-			$Area2D.visible = true
-			$Area2D2.visible = false		
+	
+	if !dash_delay:
+		
+		
+		if (player.global_position.x < global_position.x):
+				animated_sprite_2d.flip_h = true
+				$Area2D.visible = false
+				$Area2D2.visible = true
+		else:
+				animated_sprite_2d.flip_h = false
+				$Area2D.visible = true
+				$Area2D2.visible = false		
 	
 	update_layer_by_position()
 
@@ -138,12 +154,13 @@ func _perform_attack():
 	animated_sprite_2d.play("Attack")
 	await animated_sprite_2d.animation_finished
 	_is_attacking = false
-	current_state = State.CHASING # Or IDLE if player moved out of range
+	if current_state != State.DEAD:
+		current_state = State.CHASING # Or IDLE if player moved out of range
 	
 	# Without animation, immediately go to chasing or check range again
 	if _is_player_in_attack_range: # Still in range? Could attack again after CD
 		pass # Stay in ATTACKING to be re-evaluated or go to a COOLDOWN state
-	else: # Player moved out during the instant attack
+	elif current_state != State.DEAD: # Player moved out during the instant attack
 		current_state = State.CHASING
 
 
@@ -155,7 +172,8 @@ func _on_attack_range_body_entered(body: Node2D):
 		# If not already attacking and can attack, consider immediate transition
 		if current_state == State.CHASING and _can_attack:
 			current_state = State.ATTACKING
-			_perform_attack() # Or just set state and let _physics_process handle it
+			if not is_dead:
+				_perform_attack() # Or just set state and let _physics_process handle it
 
 func _on_attack_range_body_exited(body: Node2D):
 	if body == player: # Or body.is_in_group("player")
@@ -168,14 +186,16 @@ func _on_attack_cooldown_timer_timeout():
 	# After cooldown, if still in range and in ATTACKING state, try to attack again
 	# Or, more simply, always go back to CHASING to re-evaluate
 	if current_state == State.ATTACKING and _is_player_in_attack_range:
-		_perform_attack() # Try to attack again immediately if still in range
+		if not is_dead:
+			_perform_attack() # Try to attack again immediately if still in range
 	else:
 		current_state = State.CHASING # Default back to chasing
 
 func _on_nav_update_timer_timeout():
-	if current_state == State.CHASING and player and is_instance_valid(player):
-		animated_sprite_2d.play("Run")
-		_update_navigation_target()
+	if not is_dead:
+		if current_state == State.CHASING and player and is_instance_valid(player):
+			animated_sprite_2d.play("Run")
+			_update_navigation_target()
 
 func update_layer_by_position():
 	var y_pos = global_position.y
@@ -216,4 +236,20 @@ func take_damage():
 	tween2.tween_method(func(value): modulate = Color.WHITE.lerp(Color.DIM_GRAY, 1.0 - value), 0.0, 1.0, 0.2)
 	
 	enemy_health -= 1
+	if enemy_health <= 0:
+		_die()
 	await animated_sprite_2d.animation_finished
+
+func _die():
+	
+	var fragment_instance = Fragment.new()
+	add_child(fragment_instance)
+	
+	enemy_health = -1
+	navigation_agent.navigation_finished.emit()
+	
+	is_dead = true
+	current_state = State.DEAD
+	animated_sprite_2d.play("Dead")
+	await  animated_sprite_2d.animation_finished
+	pass
