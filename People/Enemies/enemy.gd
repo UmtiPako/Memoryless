@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var playerL: PackedScene
 @export var move_speed: float = 70.0
 @export var attack_damage: int = 1
 @export var attack_range_distance: float = 20.0 # Should match AttackRange's shape
@@ -30,16 +31,9 @@ func _ready():
 	var player_nodes = get_tree().get_nodes_in_group("player")
 	if not player_nodes.is_empty():
 		player = player_nodes[0] as CharacterBody2D # Cast to Node2D or your player type
-		var direction = player.position.x - self.position.x
-		if sign(direction) == -1:
-			self.scale.x = -1
-		else:
-			self.scale.x = 1
 	else:
 		printerr("Enemy couldn't find player!")
 		# queue_free() # Or handle appropriately
-		
-
 
 	# Configure AttackRange Area2D's collision shape radius if needed
 	# (Alternatively, set it in the editor and ensure attack_range_distance matches)
@@ -54,6 +48,9 @@ func _ready():
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
 	nav_update_timer.timeout.connect(_on_nav_update_timer_timeout)
 
+func _process(delta: float) -> void:
+	
+	update_layer_by_position()
 
 func _physics_process(_delta: float):
 	
@@ -161,6 +158,22 @@ func _on_nav_update_timer_timeout():
 	if current_state == State.CHASING and player and is_instance_valid(player):
 		animated_sprite_2d.play("Run")
 		_update_navigation_target()
+
+func update_layer_by_position():
+	var y_pos = global_position.y
+	var player_y_pos = player.global_position.y
+	# Calculate layer based on Y position
+	# Y position range: 920-1000 (80 units total)
+	# Layer changes every 10 units
+	# This gives us 8 different layers (0-7)
+	
+	if player_y_pos < y_pos:
+		self.z_index = 1
+	else:
+		self.z_index = 0
+
+
+		
 
 # Public function for the spawner to activate the enemy
 func set_target(target_node: Node2D):
