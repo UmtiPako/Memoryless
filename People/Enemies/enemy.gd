@@ -232,6 +232,10 @@ func take_damage():
 	await animated_sprite_2d.animation_finished
 
 func _die():
+	
+	var fragment_instance = Fragment.new()
+	add_child(fragment_instance)
+	
 	enemy_health = -1
 	navigation_agent.navigation_finished.emit()
 	
