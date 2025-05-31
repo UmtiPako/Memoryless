@@ -34,6 +34,10 @@ position = Vector2(1218, 551)
 
 [node name="Enemy" parent="." instance=ExtResource("3_eglq2")]
 position = Vector2(466, 350)
+move_speed = 70.0
+attack_damage = 10
+attack_range_distance = 20.0
+attack_cooldown = 1.5
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(1, -4)
