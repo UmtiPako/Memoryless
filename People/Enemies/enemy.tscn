@@ -147,18 +147,19 @@ collision_layer = 2
 script = ExtResource("1_oaxwq")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(-1.07288e-06, 1.90735e-06)
+position = Vector2(-1.07288e-06, -221)
 scale = Vector2(10, 7.5)
 mesh = SubResource("CapsuleMesh_ne65n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -221)
 shape = SubResource("CapsuleShape2D_hghv2")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(123, -1)
+position = Vector2(123, -222)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(28.5, -17)
@@ -172,5 +173,6 @@ wait_time = 0.3
 autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -221)
 sprite_frames = SubResource("SpriteFrames_l4846")
 animation = &"Idle"
