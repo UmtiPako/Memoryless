@@ -34,6 +34,13 @@ func _ready():
 	else:
 		printerr("Enemy couldn't find player!")
 		# queue_free() # Or handle appropriately
+		
+	var direction = player.position.x - self.position.x
+	
+	if sign(direction) == -1:
+		self.scale.x = -1
+	else:
+		self.scale.x = 1
 
 	# Configure AttackRange Area2D's collision shape radius if needed
 	# (Alternatively, set it in the editor and ensure attack_range_distance matches)
@@ -51,12 +58,7 @@ func _ready():
 
 func _physics_process(_delta: float):
 	
-	if velocity.x > 0:
-			# Moving right - face right
-			self.scale.x = -1
-	elif velocity.x < 0:
-			# Moving left - face left
-			self.scale.x = 1
+	
 	if not player or not is_instance_valid(player):
 		# Player might have been removed (e.g. died)
 		# Consider what enemies should do here (e.g. go idle, despawn)
