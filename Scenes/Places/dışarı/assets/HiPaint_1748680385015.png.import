@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq8gshvki2dfa"
-path="res://.godot/imported/HiPaint_1748688193680.png-10d6fe83c7db4bbb09d24d613051b215.ctex"
+uid="uid://csawtdke088hp"
+path="res://.godot/imported/HiPaint_1748680385015.png-69fdd04d63d43c5155b3b3bba67ab0c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Places/dışarı/assets/HiPaint_1748688193680.png"
-dest_files=["res://.godot/imported/HiPaint_1748688193680.png-10d6fe83c7db4bbb09d24d613051b215.ctex"]
+source_file="res://Scenes/Places/dışarı/assets/HiPaint_1748680385015.png"
+dest_files=["res://.godot/imported/HiPaint_1748680385015.png-69fdd04d63d43c5155b3b3bba67ab0c3.ctex"]
 
 [params]
 
