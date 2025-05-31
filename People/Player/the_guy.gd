@@ -19,3 +19,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func take_damage(damageTaken: int):
+	animated_sprite_2d.play("Get_Hit")
+	await animated_sprite_2d.animation_finished
+	HEALTH -= damageTaken
+	
+
+func attack():
+	animated_sprite_2d.play("Attack")
+	pass
