@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 @export var move_speed: float = 70.0
 @export var attack_damage: int = 10
 @export var attack_range_distance: float = 20.0 # Should match AttackRange's shape
@@ -106,11 +108,11 @@ func _perform_attack():
 	_can_attack = false
 	attack_cooldown_timer.start(attack_cooldown)
 	# If you have an attack animation:
-	# _is_attacking = true
-	# animated_sprite.play("attack")
-	# await animated_sprite.animation_finished # Wait for anim to finish
-	# _is_attacking = false
-	# current_state = State.CHASING # Or IDLE if player moved out of range
+	_is_attacking = true
+	animated_sprite_2d.play("Attack")
+	await animated_sprite_2d.animation_finished
+	_is_attacking = false
+	current_state = State.CHASING # Or IDLE if player moved out of range
 	
 	# Without animation, immediately go to chasing or check range again
 	if _is_player_in_attack_range: # Still in range? Could attack again after CD
@@ -146,6 +148,7 @@ func _on_attack_cooldown_timer_timeout():
 
 func _on_nav_update_timer_timeout():
 	if current_state == State.CHASING and player and is_instance_valid(player):
+		animated_sprite_2d.play("Run")
 		_update_navigation_target()
 
 # Public function for the spawner to activate the enemy
