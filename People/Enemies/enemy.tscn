@@ -175,6 +175,8 @@ script = ExtResource("1_oaxwq")
 playerL = ExtResource("2_435rb")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 90.0
+target_desired_distance = 80.0
 avoidance_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]

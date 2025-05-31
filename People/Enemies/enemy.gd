@@ -71,7 +71,6 @@ func player_dashed():
 
 
 func _process(delta: float) -> void:	
-	
 	if !dash_delay:
 		
 		
