@@ -5,14 +5,6 @@
 
 [node name="SahneEv" instance=ExtResource("1_qn751")]
 
-[node name="Door" parent="." index="2"]
-SolEnabled = true
-SagEnabled = true
-
-[node name="Door2" parent="." index="3"]
-SolEnabled = true
-SagEnabled = true
-
 [node name="Enemy" parent="." index="5" node_paths=PackedStringArray("navigation_region") instance=ExtResource("2_mrxir")]
 position = Vector2(1441, 923)
 navigation_region = NodePath("../NavigationRegion2D")

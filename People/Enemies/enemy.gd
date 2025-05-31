@@ -248,6 +248,7 @@ func _die():
 	
 	is_dead = true
 	current_state = State.DEAD
+	GameManager.enemy_killed.emit()
 	animated_sprite_2d.play("Dead")
 	await  animated_sprite_2d.animation_finished
 	
