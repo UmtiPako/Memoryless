@@ -173,7 +173,7 @@ func set_target(target_node: Node2D):
 
 func take_damage():
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", Vector2(self.position.x + 50 / enemy_health, self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "global_position", Vector2(self.position.x +  30, self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	animated_sprite_2d.play("Hurt")
 	enemy_health -= 1
 	await animated_sprite_2d.animation_finished

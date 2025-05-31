@@ -27,12 +27,6 @@ func _ready():
 
 	_initialize_bounds_from_polygon()
 
-	# Optional: Connect to a signal if the polygon data might change at runtime
-	# and you need to re-initialize. For editor changes, a tool script or manual
-	# refresh might be needed if you don't re-run the scene.
-	# _boundary_polygon.connect("item_rect_changed", Callable(self, "_on_polygon_changed")) # May not always fire for vertex edits
-
-# Call this if you programmatically change the polygon's points at runtime
 func reinitialize_bounds():
 	if _boundary_polygon:
 		_initialize_bounds_from_polygon()
@@ -49,14 +43,10 @@ func _initialize_bounds_from_polygon():
 		printerr("PlayerMovementArea: BoundaryPolygon must have exactly 4 points to define a trapezoid. It has ", raw_polygon_points.size())
 		_is_initialized = false
 		return
-
+	
 	print(raw_polygon_points)
-
-	# After sorting:
-	# points[0] and points[1] are the "top" two points (smaller Y)
-	# points[2] and points[3] are the "bottom" two points (larger Y)
-
-	 # --- Fix for Issue 2: Transform points to MovementArea's local space ---
+	
+		 # --- Fix for Issue 2: Transform points to MovementArea's local space ---
 	var points_in_parent_space: PackedVector2Array = PackedVector2Array()
 	var poly_transform_to_parent: Transform2D = _boundary_polygon.transform # Gets local transform relative to parent
 	for p_local_to_poly in raw_polygon_points:
@@ -95,7 +85,7 @@ func clamp_global_position(global_target_pos: Vector2) -> Vector2:
 	var min_y: float = min(_top_left.y, _top_right.y)
 	var max_y: float = max(_bottom_left.y, _bottom_right.y)
 	clamped_local_pos.y = clamp(local_target_pos.y, min_y, max_y)
-
+	print("clamped_local_pos: " + str(clamped_local_pos.y))
 	# 2. Calculate X boundaries for the clamped_local_pos.y using linear interpolation
 	var t: float = 0.0
 	if max_y - min_y > 0.001: # Avoid division by zero

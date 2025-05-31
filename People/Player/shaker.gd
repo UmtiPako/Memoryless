@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 		offset = random_offset()
 		
 func apply_shake():
-	if shake_timer.is_stopped():
-		shakeStrength = random_strenght
+	
+	shakeStrength = random_strenght
 		
 
 func random_offset():

@@ -11,6 +11,6 @@ gradient = SubResource("Gradient_52cn5")
 script = ExtResource("1_s3ft2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(613, 320)
-scale = Vector2(8.85336, 958.1)
+position = Vector2(935.5, 552)
+scale = Vector2(8.80859, 1224)
 texture = SubResource("GradientTexture1D_s3ft2")

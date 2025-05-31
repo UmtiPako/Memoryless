@@ -10,6 +10,8 @@ const JUMP_VELOCITY = -400.0
 @export var HEALTH = 4
 @export var boundary: MovementArea
 
+@export var camera_2D : Camera2D
+
 var lookin_right : bool = true
 var size_swap_reset:bool = false
 
@@ -68,7 +70,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(damageTaken: int):
 	animated_sprite_2d.play("Get_Hit")
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", Vector2(self.position.x +  -sign(self.scale.x) * (50 / HEALTH), self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "global_position", Vector2(self.position.x +  -sign(self.scale.x) * (30), self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	HEALTH -= damageTaken
 	await animated_sprite_2d.animation_finished
 	
@@ -76,7 +78,7 @@ func take_damage(damageTaken: int):
 func attack():
 	animated_sprite_2d.play("Attack")
 	if $Area2D.has_overlapping_bodies():
-		$Camera2D.apply_shake()
+		camera_2D.apply_shake()
 		
 	for enemy in $Area2D.get_overlapping_bodies():
 		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
