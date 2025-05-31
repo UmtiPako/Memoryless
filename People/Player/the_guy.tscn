@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cc2f3uo2nkn21"]
+[gd_scene load_steps=23 format=3 uid="uid://cc2f3uo2nkn21"]
 
 [ext_resource type="Script" uid="uid://dt4i7cuwaf750" path="res://People/Player/the_guy.gd" id="1_rv1v6"]
 [ext_resource type="Texture2D" uid="uid://8un4xjovf1go" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharPunch.png" id="2_xribg"]
@@ -10,8 +10,12 @@
 size = Vector2(101, 121)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vd5c"]
-radius = 73.0
-height = 334.0
+radius = 39.0
+height = 80.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_xribg"]
+font_size = 24
+outline_size = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3wh0p"]
 atlas = ExtResource("2_xribg")
@@ -131,7 +135,7 @@ animations = [{
 script = ExtResource("1_rv1v6")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(96, -181)
+position = Vector2(71, -166)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -139,30 +143,29 @@ position = Vector2(28.5, 5.5)
 shape = SubResource("RectangleShape2D_xribg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -137)
+position = Vector2(9, -2)
 shape = SubResource("CapsuleShape2D_3vd5c")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -197)
-sprite_frames = SubResource("SpriteFrames_4h37l")
-animation = &"Attack"
-frame = 1
-frame_progress = 1.0
 
 [node name="letterTimer" type="Timer" parent="."]
 wait_time = 0.048
 
 [node name="Dialogue" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_left = -69.0
-offset_top = -355.0
-offset_right = 149.0
-offset_bottom = -328.0
+offset_left = -94.0
+offset_top = -372.0
+offset_right = 124.0
+offset_bottom = -345.0
+label_settings = SubResource("LabelSettings_xribg")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="shakeTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -197)
+sprite_frames = SubResource("SpriteFrames_4h37l")
+animation = &"Idle"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

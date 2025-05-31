@@ -14,8 +14,15 @@ const JUMP_VELOCITY = -400.0
 var lookin_right : bool = true
 var size_swap_reset:bool = false
 
+var random_start_catchprases: Array[String] = [
+	"Bura nere lan?",
+	"Bababoi!",
+	"Zoinks!",
+	"NOLUYO",
+]
+
 func _ready() -> void:
-	display_dialogue("Selamünaleyküm deniz şeker")
+	display_random_dialogue(random_start_catchprases)
 	
 
 func display_dialogue(text: String):
@@ -30,7 +37,7 @@ func display_dialogue(text: String):
 
 	
 func display_random_dialogue(text: Array[String]):
-	pass
+	display_dialogue(random_start_catchprases[randf_range(0, len(random_start_catchprases))])
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
