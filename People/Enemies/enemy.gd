@@ -62,7 +62,6 @@ func _ready():
 
 func _process(delta: float) -> void:	
 	
-	
 	if (player.global_position.x < global_position.x):
 			animated_sprite_2d.flip_h = true
 			$Area2D.visible = false
