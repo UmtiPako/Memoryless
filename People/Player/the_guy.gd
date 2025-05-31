@@ -51,6 +51,7 @@ func display_random_dialogue(text: Array[String]):
 
 
 func _physics_process(delta: float) -> void:
+	
 	# Add the gravity.
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
@@ -76,18 +77,11 @@ func _physics_process(delta: float) -> void:
 			$Area2D.visible = false
 			$Area2D2.visible = true
 		
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-		velocity = direction * SPEED
-=======
-=======
->>>>>>> Stashed changes
 		if is_dashing:
 			velocity = dash_direction * DASH_SPEED
 		else:
 			velocity = direction * SPEED
-		
->>>>>>> Stashed changes
+
 		animated_sprite_2d.play("Walk")
 	else:
 		if (animated_sprite_2d.animation == "Get_Hit" || animated_sprite_2d.animation == "Attack" ):
@@ -109,28 +103,38 @@ func _physics_process(delta: float) -> void:
 	if boundary:
 		global_position = boundary.clamp_global_position(global_position)
 
-func take_damage(damageTaken: int):
+func take_damage(damageTaken: int, enemy_pos: Vector2):
 	animated_sprite_2d.play("Get_Hit")
+	
+	camera_2D.apply_shake()
+	
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", Vector2(self.position.x +  -sign(self.scale.x) * (30), self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_method(func(value): modulate = Color.WHITE.lerp(Color.DIM_GRAY, 1.0 - value), 0.0, 1.0, 0.2)
+	
+	var direction = 1
+	
+	if enemy_pos > global_position :
+		direction = -1
+	
+	tween.tween_property(self, "global_position", Vector2(self.position.x + (30 * direction), self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	HEALTH -= damageTaken
 	await animated_sprite_2d.animation_finished
-	
+
 
 func attack():
 	animated_sprite_2d.play("Attack")
-	if $Area2D.has_overlapping_bodies(): 
-		camera_2D.apply_shake()
-		
+	
+	await animated_sprite_2d.animation_finished
+	
 	for enemy in $Area2D.get_overlapping_bodies():
 		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
 			GameManager.hit_stop(0.3, 0.1)
-<<<<<<< Updated upstream
-=======
 			enemy.call("take_damage")
 	for enemy in $Area2D2.get_overlapping_bodies():
 		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
->>>>>>> Stashed changes
+			enemy.call("take_damage")
+	for enemy in $Area2D2.get_overlapping_bodies():
+		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
 			enemy.call("take_damage")
 
 
