@@ -11,6 +11,9 @@ const JUMP_VELOCITY = -400.0
 var lookin_right : bool = true
 var size_swap_reset:bool = false
 
+func _ready() -> void:
+	HEALTH = GameManager.player_health
+	pass
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -47,6 +50,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(damageTaken: int):
 	animated_sprite_2d.play("Get_Hit")
 	HEALTH -= damageTaken
+	GameManager.player_health = HEALTH
 	hurt_effect()
 	await animated_sprite_2d.animation_finished
 	
