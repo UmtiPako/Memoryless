@@ -75,12 +75,12 @@ func _process(delta: float) -> void:
 	if !dash_delay && !is_dead:
 		if (player.global_position.x < global_position.x):
 				animated_sprite_2d.flip_h = true
-				$Area2D.visible = false
-				$Area2D2.visible = true
+				$Area2D/CollisionShape2D.disabled = true
+				$Area2D2/CollisionShape2D.disabled = false
 		else:
 				animated_sprite_2d.flip_h = false
-				$Area2D.visible = true
-				$Area2D2.visible = false		
+				$Area2D/CollisionShape2D.disabled = false
+				$Area2D2/CollisionShape2D.disabled = true		
 	
 	update_layer_by_position()
 
