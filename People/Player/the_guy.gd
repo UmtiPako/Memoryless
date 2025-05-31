@@ -3,9 +3,11 @@ extends CharacterBody2D
 var is_taking_hit : bool = false
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const DASH_SPEED = 800.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dialogue: Label = $Dialogue
+
+var dash_direction := Vector2.ZERO
 
 @export var HEALTH = 4
 @export var boundary: MovementArea
@@ -14,6 +16,13 @@ const JUMP_VELOCITY = -400.0
 
 var lookin_right : bool = true
 var size_swap_reset:bool = false
+
+var is_dashing: bool = false
+
+
+@export var dash_duration: float = 0.2
+@export var dash_cooldown_time: float = 1.0
+
 
 var random_start_catchprases: Array[String] = [
 	"Bura nere lan?",
@@ -40,6 +49,7 @@ func display_dialogue(text: String):
 func display_random_dialogue(text: Array[String]):
 	display_dialogue(random_start_catchprases[randf_range(0, len(random_start_catchprases))])
 
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():
@@ -47,6 +57,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_accept") && animated_sprite_2d.animation != "Get_Hit":
 		attack()
+
+		
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -64,7 +76,15 @@ func _physics_process(delta: float) -> void:
 			$Area2D.visible = false
 			$Area2D2.visible = true
 		
+<<<<<<< Updated upstream
 		velocity = direction * SPEED
+=======
+		if is_dashing:
+			velocity = dash_direction * DASH_SPEED
+		else:
+			velocity = direction * SPEED
+		
+>>>>>>> Stashed changes
 		animated_sprite_2d.play("Walk")
 	else:
 		if (animated_sprite_2d.animation == "Get_Hit" || animated_sprite_2d.animation == "Attack" ):
@@ -74,6 +94,13 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("Idle")
 		size_swap_reset = true 
 	
+	if Input.is_action_just_pressed("Dash") and !is_dashing and direction != Vector2.ZERO:
+		is_dashing = true
+		dash_direction = direction
+		$dashTimer.start()
+		$CollisionShape2D.disabled = true
+		$CollisionShape2D2.disabled = true
+		GameManager.player_dashed.emit()
 	
 	move_and_slide()
 	if boundary:
@@ -94,6 +121,11 @@ func attack():
 		
 	for enemy in $Area2D.get_overlapping_bodies():
 		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
+			GameManager.hit_stop(0.3, 0.1)
 			enemy.call("take_damage")
 
-	
+
+func _on_dash_timer_timeout() -> void:
+	is_dashing = false
+	$CollisionShape2D.disabled = false
+	$CollisionShape2D2.disabled = false

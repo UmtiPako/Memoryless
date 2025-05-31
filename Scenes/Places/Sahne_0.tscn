@@ -65,7 +65,7 @@ uv = PackedVector2Array(311.48, 975.5, -17.36, 1085.34, 1242.34, 1123.1, 1921.92
 position = Vector2(1416, 1039)
 
 [node name="The_Guy" parent="." node_paths=PackedStringArray("boundary", "camera_2D") instance=ExtResource("4_a2urg")]
-position = Vector2(396, 968)
+position = Vector2(788, 965)
 boundary = NodePath("../MoveArea")
 camera_2D = NodePath("../Camera2D")
 
@@ -75,3 +75,9 @@ navigation_polygon = SubResource("NavigationPolygon_wpm22")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(959, 539)
 script = ExtResource("8_n775l")
+
+[node name="Enemy" parent="." instance=ExtResource("8_wpm22")]
+position = Vector2(1202, 950)
+
+[node name="Enemy2" parent="." instance=ExtResource("8_wpm22")]
+position = Vector2(332, 926)

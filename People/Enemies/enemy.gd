@@ -26,6 +26,8 @@ enum State { IDLE, CHASING, ATTACKING }
 var current_state: State = State.IDLE
 
 func _ready():
+	move_speed = randf_range(70,120)
+	GameManager.player_dashed.connect(player_dashed)
 	# Attempt to find the player immediately
 	# More robust: have spawner or game manager assign the player
 	var player_nodes = get_tree().get_nodes_in_group("player")
@@ -48,18 +50,24 @@ func _ready():
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
 	nav_update_timer.timeout.connect(_on_nav_update_timer_timeout)
 
+var dash_delay: bool = false
 
+func player_dashed():
+	$DashDelay.start()
+	dash_delay = true
+	
 func _process(delta: float) -> void:	
-	if (player.global_position.x < global_position.x):
+	if !dash_delay:
+		if (player.global_position.x < global_position.x):
 			animated_sprite_2d.flip_h = true
 			$Area2D.visible = false
 			$Area2D2.visible = true
-	else:
+		else:
 			animated_sprite_2d.flip_h = false
 			$Area2D.visible = true
 			$Area2D2.visible = false		
 	
-	update_layer_by_position()
+		update_layer_by_position()
 
 func _physics_process(_delta: float):
 	
@@ -119,8 +127,11 @@ func _perform_attack():
 
 	print(name + " attacks player!")
 	# Assuming player has a take_damage method
+<<<<<<< Updated upstream
 	if player.has_method("take_damage"):
 		player.call("take_damage", attack_damage)
+=======
+>>>>>>> Stashed changes
 
 	_can_attack = false
 	attack_cooldown_timer.start(attack_cooldown)
@@ -128,6 +139,10 @@ func _perform_attack():
 	_is_attacking = true
 	animated_sprite_2d.play("Attack")
 	await animated_sprite_2d.animation_finished
+	
+	if player.has_method("take_damage") and _is_player_in_attack_range:
+		player.call("take_damage", attack_damage, self.global_position)
+	
 	_is_attacking = false
 	current_state = State.CHASING # Or IDLE if player moved out of range
 	
@@ -199,3 +214,7 @@ func take_damage():
 	animated_sprite_2d.play("Hurt")
 	enemy_health -= 1
 	await animated_sprite_2d.animation_finished
+
+
+func _on_dash_delay_timeout() -> void:
+	dash_delay = false
