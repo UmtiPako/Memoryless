@@ -135,6 +135,7 @@ sprite_frames = SubResource("SpriteFrames_4h37l")
 animation = &"Walk"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.65, 0.65)
 
 [node name="hittedTimer" type="Timer" parent="."]
 wait_time = 0.334
