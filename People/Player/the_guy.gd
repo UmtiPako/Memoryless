@@ -77,8 +77,11 @@ func _physics_process(delta: float) -> void:
 			$Area2D2.visible = true
 		
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		velocity = direction * SPEED
 =======
+=======
+>>>>>>> Stashed changes
 		if is_dashing:
 			velocity = dash_direction * DASH_SPEED
 		else:
@@ -122,6 +125,12 @@ func attack():
 	for enemy in $Area2D.get_overlapping_bodies():
 		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
 			GameManager.hit_stop(0.3, 0.1)
+<<<<<<< Updated upstream
+=======
+			enemy.call("take_damage")
+	for enemy in $Area2D2.get_overlapping_bodies():
+		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
+>>>>>>> Stashed changes
 			enemy.call("take_damage")
 
 

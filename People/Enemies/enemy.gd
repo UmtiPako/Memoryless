@@ -128,8 +128,11 @@ func _perform_attack():
 	print(name + " attacks player!")
 	# Assuming player has a take_damage method
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	if player.has_method("take_damage"):
 		player.call("take_damage", attack_damage)
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
