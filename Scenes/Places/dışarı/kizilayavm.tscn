@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cn1demdqx2uhh"]
+[gd_scene load_steps=10 format=3 uid="uid://dd8hjgyfo0t2b"]
 
 [ext_resource type="PackedScene" uid="uid://cc2f3uo2nkn21" path="res://People/Player/the_guy.tscn" id="1_52sdp"]
 [ext_resource type="Texture2D" uid="uid://c5m8lpwu81q1n" path="res://Scenes/Places/dışarı/assets/HiPaint_1748680255937.png" id="1_x15q1"]

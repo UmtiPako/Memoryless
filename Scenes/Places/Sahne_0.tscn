@@ -60,10 +60,12 @@ boundary_polygon_node_path = NodePath("Polygon2D")
 position = Vector2(4, 4)
 polygon = PackedVector2Array(33, 1073, 1882, 1076, 1839, 910, 306, 910)
 uv = PackedVector2Array(311.48, 975.5, -17.36, 1085.34, 1242.34, 1123.1, 1921.92, 1131.14, 1792.42, 945.44, 369.32, 968.94, 312.32, 976.44)
+[node name="The_Guy" parent="." node_paths=PackedStringArray("boundary", "camera_2D") instance=ExtResource("4_a2urg")]
+position = Vector2(396, 968)
+HEALTH = 4
+boundary = NodePath("../MoveArea")
+camera_2D = NodePath("../Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(957, 539)
-script = ExtResource("7_j2pfg")
 
 [node name="Enemy" parent="." instance=ExtResource("8_wpm22")]
 position = Vector2(1416, 1039)

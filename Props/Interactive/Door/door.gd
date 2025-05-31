@@ -1,10 +1,31 @@
 extends Node2D
+@onready var SolWorldBorder = $SolWolrdBorder
+@onready var SagWorldBorder = $SagWorldBorder
 
+@export var SolEnabled = false
+@export var SagEnabled = false
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
+func ready() -> void:
+	if SolEnabled == true :
+		SolWorldBorder.show()
+	else: 
+		SolWorldBorder.hide()
+	if SagEnabled == true :
+		SagWorldBorder.show()
+	else:
+		SagWorldBorder.hide()
+func lock():
+	SolWorldBorder.hide()
+	SagWorldBorder.hide()
+func unlock():
+	if SolEnabled == true :
+		SolWorldBorder.show()
+	else: 
+		SolWorldBorder.hide()
+	if SagEnabled == true :
+		SagWorldBorder.show()
+	else:
+		SagWorldBorder.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

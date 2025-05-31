@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://row2hkiqfmgr"]
+
+[ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_qn751"]
+
+[node name="SahneEv" instance=ExtResource("1_qn751")]
+
+[node name="Door" parent="." index="2"]
+SolEnabled = true
+SagEnabled = true
+
+[node name="Door2" parent="." index="3"]
+SolEnabled = true
+SagEnabled = true
