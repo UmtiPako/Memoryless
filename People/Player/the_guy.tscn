@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpi5nvf3680qv" path="res://People/Player/drive-download-20250531T000533Z-1-001/CharRun.png" id="5_2uw73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xribg"]
-size = Vector2(101, 121)
+size = Vector2(101, 319)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vd5c"]
 radius = 39.0
@@ -134,6 +134,14 @@ animations = [{
 [node name="The_Guy" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rv1v6")
 
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-105, -161)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(28.5, 5.5)
+shape = SubResource("RectangleShape2D_xribg")
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(71, -166)
 collision_mask = 2
@@ -141,6 +149,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(28.5, 5.5)
 shape = SubResource("RectangleShape2D_xribg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(14, -277)
+shape = SubResource("CapsuleShape2D_3vd5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, -2)
@@ -167,5 +179,7 @@ position = Vector2(0, -197)
 sprite_frames = SubResource("SpriteFrames_4h37l")
 animation = &"Idle"
 
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

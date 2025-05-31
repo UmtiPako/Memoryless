@@ -48,7 +48,16 @@ func _ready():
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
 	nav_update_timer.timeout.connect(_on_nav_update_timer_timeout)
 
-func _process(delta: float) -> void:
+
+func _process(delta: float) -> void:	
+	if (player.global_position.x < global_position.x):
+			animated_sprite_2d.flip_h = true
+			$Area2D.visible = false
+			$Area2D2.visible = true
+	else:
+			animated_sprite_2d.flip_h = false
+			$Area2D.visible = true
+			$Area2D2.visible = false		
 	
 	update_layer_by_position()
 

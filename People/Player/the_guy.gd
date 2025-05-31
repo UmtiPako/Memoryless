@@ -55,9 +55,14 @@ func _physics_process(delta: float) -> void:
 		if velocity.x > 0:
 			# Moving right - face right
 			animated_sprite_2d.scale.x = 1
+			$Area2D.visible = true
+			$Area2D2.visible = false
+
 		elif velocity.x < 0:
 			# Moving left - face left
 			animated_sprite_2d.scale.x = -1
+			$Area2D.visible = false
+			$Area2D2.visible = true
 		
 		velocity = direction * SPEED
 		animated_sprite_2d.play("Walk")
@@ -84,7 +89,7 @@ func take_damage(damageTaken: int):
 
 func attack():
 	animated_sprite_2d.play("Attack")
-	if $Area2D.has_overlapping_bodies():
+	if $Area2D.has_overlapping_bodies(): 
 		camera_2D.apply_shake()
 		
 	for enemy in $Area2D.get_overlapping_bodies():

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dveu0pak05lbt" path="res://Props/Interactive/Door/door.tscn" id="3_fkll0"]
 [ext_resource type="PackedScene" uid="uid://cc2f3uo2nkn21" path="res://People/Player/the_guy.tscn" id="4_a2urg"]
 [ext_resource type="Script" uid="uid://b6ngvjh0h8rot" path="res://Scenes/Places/move_area.gd" id="5_8s7n7"]
-[ext_resource type="Script" uid="uid://bkdux88x1ypmj" path="res://People/Player/shaker.gd" id="7_j2pfg"]
+[ext_resource type="Script" uid="uid://bkdux88x1ypmj" path="res://People/Player/shaker.gd" id="8_n775l"]
 [ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="8_wpm22"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wpm22"]
@@ -60,20 +60,18 @@ boundary_polygon_node_path = NodePath("Polygon2D")
 position = Vector2(4, 4)
 polygon = PackedVector2Array(33, 1073, 1882, 1076, 1839, 910, 306, 910)
 uv = PackedVector2Array(311.48, 975.5, -17.36, 1085.34, 1242.34, 1123.1, 1921.92, 1131.14, 1792.42, 945.44, 369.32, 968.94, 312.32, 976.44)
-[node name="The_Guy" parent="." node_paths=PackedStringArray("boundary", "camera_2D") instance=ExtResource("4_a2urg")]
-position = Vector2(396, 968)
-HEALTH = 4
-boundary = NodePath("../MoveArea")
-camera_2D = NodePath("../Camera2D")
-
 
 [node name="Enemy" parent="." instance=ExtResource("8_wpm22")]
 position = Vector2(1416, 1039)
 
 [node name="The_Guy" parent="." node_paths=PackedStringArray("boundary", "camera_2D") instance=ExtResource("4_a2urg")]
-position = Vector2(407, 972)
+position = Vector2(396, 968)
 boundary = NodePath("../MoveArea")
 camera_2D = NodePath("../Camera2D")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_wpm22")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(959, 539)
+script = ExtResource("8_n775l")

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ca8x2ksf1vfcb" path="res://People/Enemies/drive-download-20250531T043340Z-1-001/Enemy1Run.png" id="5_6xn8s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
-size = Vector2(101, 188)
+size = Vector2(101, 418)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ilig"]
 atlas = ExtResource("2_mjfh8")
@@ -144,10 +144,17 @@ playerL = ExtResource("2_435rb")
 avoidance_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(98, -196)
+position = Vector2(84, -196)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(29, -16)
+position = Vector2(48, -7)
+shape = SubResource("RectangleShape2D_1f0kj")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-144, -196)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(49, -8)
 shape = SubResource("RectangleShape2D_1f0kj")
 
 [node name="AttackTimer" type="Timer" parent="."]
@@ -161,7 +168,7 @@ autostart = true
 visibility_layer = 2
 position = Vector2(0, -194)
 sprite_frames = SubResource("SpriteFrames_l4846")
-animation = &"Idle"
+animation = &"Attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
 position = Vector2(20, -16)
@@ -169,3 +176,4 @@ rotation = 0.00634043
 shape = SubResource("CapsuleShape2D_hghv2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_body_entered"]
