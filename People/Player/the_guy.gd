@@ -46,11 +46,22 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damageTaken: int):
 	animated_sprite_2d.play("Get_Hit")
-	await animated_sprite_2d.animation_finished
-	
 	HEALTH -= damageTaken
+	hurt_effect()
+	await animated_sprite_2d.animation_finished
 	
 
 func attack():
 	animated_sprite_2d.play("Attack")
+	pass
+
+func hurt_effect():
+	var original_color = modulate
+	
+	# Create a tween for smooth transitions
+	var tween = create_tween()
+	
+	# Flash sequence: normal -> black -> white -> normal
+	tween.tween_property(self, "modulate", Color.BLACK, 0.1)
+	tween.tween_property(self, "modulate", original_color, 0.1)
 	pass

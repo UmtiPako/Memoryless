@@ -73,7 +73,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Attack",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,7 +84,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Get_Hit",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,7 +98,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,20 +121,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [node name="The_Guy" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rv1v6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -203)
 shape = SubResource("CapsuleShape2D_3vd5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -203)
 sprite_frames = SubResource("SpriteFrames_4h37l")
-animation = &"Walk"
+animation = &"Attack"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -203)
 
 [node name="hittedTimer" type="Timer" parent="."]
 wait_time = 0.334

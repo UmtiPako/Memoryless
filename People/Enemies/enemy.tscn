@@ -21,6 +21,10 @@ height = 464.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
 size = Vector2(101, 188)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8tdr"]
+atlas = ExtResource("2_mjfh8")
+region = Rect2(1000, 0, 500, 500)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ilig"]
 atlas = ExtResource("2_mjfh8")
 region = Rect2(0, 0, 500, 500)
@@ -28,10 +32,6 @@ region = Rect2(0, 0, 500, 500)
 [sub_resource type="AtlasTexture" id="AtlasTexture_e462f"]
 atlas = ExtResource("2_mjfh8")
 region = Rect2(500, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8tdr"]
-atlas = ExtResource("2_mjfh8")
-region = Rect2(1000, 0, 500, 500)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uuu1j"]
 atlas = ExtResource("3_435rb")
@@ -81,6 +81,9 @@ region = Rect2(2500, 0, 500, 500)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_g8tdr")
+}, {
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_7ilig")
 }, {
 "duration": 1.0,
@@ -89,9 +92,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g8tdr")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -175,4 +178,4 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -221)
 sprite_frames = SubResource("SpriteFrames_l4846")
-animation = &"Idle"
+animation = &"Attack"
