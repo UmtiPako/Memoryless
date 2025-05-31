@@ -10,9 +10,9 @@ size = Vector2(1424, 20)
 [sub_resource type="BoxMesh" id="BoxMesh_iti4p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eglq2"]
-vertices = PackedVector2Array(1034.38, 302.547, 1016.6, 587.977, 201.867, 587.008, 163.328, 265.492)
+vertices = PackedVector2Array(1016.6, 587.977, 203.031, 587.008, 203.961, 334.617, 1034.33, 303.398)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(152, 255, 193, 597, 1026, 598, 1045, 293)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(194, 325, 193, 597, 1026, 598, 1045, 293)])
 
 [node name="Test_Level" type="Node2D"]
 
@@ -27,13 +27,14 @@ scale = Vector2(1424, 20)
 mesh = SubResource("BoxMesh_iti4p")
 
 [node name="The_Guy" parent="." instance=ExtResource("1_iti4p")]
-position = Vector2(862, 276)
+position = Vector2(1081, 156)
 
 [node name="Door" parent="." instance=ExtResource("2_dtjkg")]
 position = Vector2(1218, 551)
 
 [node name="Enemy" parent="." instance=ExtResource("3_eglq2")]
-position = Vector2(460, 338)
+position = Vector2(762, 336)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(0, 17)
 navigation_polygon = SubResource("NavigationPolygon_eglq2")
