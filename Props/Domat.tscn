@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://sp5k2nao0nvc"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_8kx11"]
+[ext_resource type="Texture2D" uid="uid://dcce57vlv3gby" path="res://Scenes/Places/dışarı/assets/Domat.png" id="2_ykelm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8kx11"]
+radius = 50.1423
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykelm"]
+radius = 63.7122
+
+[node name="PropBase" instance=ExtResource("1_8kx11")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(1.5, 2)
+shape = SubResource("CircleShape2D_8kx11")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_ykelm")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(0, 2.5)
+shape = SubResource("CircleShape2D_ykelm")

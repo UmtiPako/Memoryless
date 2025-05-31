@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh7etrnupssjk"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_mjnhy"]
+[ext_resource type="Texture2D" uid="uid://36vecgcd0v0c" path="res://Scenes/Places/dışarı/assets/Misir.png" id="2_2cr6y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mjnhy"]
+radius = 43.6561
+height = 121.488
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cr6y"]
+radius = 53.8464
+height = 175.819
+
+[node name="PropBase" instance=ExtResource("1_mjnhy")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(6, 4)
+rotation = 0.359538
+shape = SubResource("CapsuleShape2D_mjnhy")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(-2, 0)
+texture = ExtResource("2_2cr6y")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+rotation = 0.359538
+shape = SubResource("CapsuleShape2D_2cr6y")

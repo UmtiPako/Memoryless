@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmik73bnmdtnk"]
+[gd_scene load_steps=5 format=3 uid="uid://cmik73bnmdtnk"]
 
 [ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_qpxa3"]
 [ext_resource type="Texture2D" uid="uid://bhr2yi2rd6lg6" path="res://Scenes/Places/içeri/assets/HavluAskısı.png" id="2_xwt4f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpxa3"]
+size = Vector2(113, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwt4f"]
+size = Vector2(135, 136)
+
 [node name="PropBase" instance=ExtResource("1_qpxa3")]
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-1.5, -10.75)
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_qpxa3")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_xwt4f")
 
 [node name="CollisionShape2D2" parent="Area2D" index="0"]
-position = Vector2(0.5, -11.5)
+position = Vector2(-0.5, -12)
+shape = SubResource("RectangleShape2D_xwt4f")

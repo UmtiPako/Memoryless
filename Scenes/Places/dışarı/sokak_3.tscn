@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_7815p"]
 [ext_resource type="Texture2D" uid="uid://c5m8lpwu81q1n" path="res://Scenes/Places/dışarı/assets/SokakBg.png" id="2_fxnbq"]
 [ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="3_fxnbq"]
-[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="3_pftrp"]
+[ext_resource type="PackedScene" uid="uid://8vxdspuv1lcj" path="res://Props/Cop.tscn" id="4_fxnbq"]
 
 [node name="Sahne0" instance=ExtResource("1_7815p")]
 
@@ -21,32 +21,20 @@ scale = Vector2(0.8, 0.8)
 [node name="The_Guy" parent="." index="7"]
 scale = Vector2(0.8, 0.8)
 
-[node name="PropBase" parent="." index="10" instance=ExtResource("3_pftrp")]
-position = Vector2(835, 914)
+[node name="PropBase" parent="." index="10" instance=ExtResource("4_fxnbq")]
+position = Vector2(928, 891)
 
-[node name="PropBase2" parent="." index="11" instance=ExtResource("3_pftrp")]
-position = Vector2(948, 914)
+[node name="PropBase2" parent="." index="11" instance=ExtResource("4_fxnbq")]
+position = Vector2(1041, 891)
 
-[node name="PropBase3" parent="." index="12" instance=ExtResource("3_pftrp")]
-position = Vector2(1064, 923)
+[node name="PropBase3" parent="." index="12" instance=ExtResource("4_fxnbq")]
+position = Vector2(1156, 891)
 
-[node name="PropBase4" parent="." index="13" instance=ExtResource("3_pftrp")]
-position = Vector2(1194, 928)
+[node name="PropBase4" parent="." index="13" instance=ExtResource("4_fxnbq")]
+position = Vector2(968, 761)
 
-[node name="PropBase5" parent="." index="14" instance=ExtResource("3_pftrp")]
-position = Vector2(899, 813)
+[node name="PropBase5" parent="." index="14" instance=ExtResource("4_fxnbq")]
+position = Vector2(1093, 761)
 
-[node name="PropBase6" parent="." index="15" instance=ExtResource("3_pftrp")]
-position = Vector2(1022, 811)
-
-[node name="PropBase7" parent="." index="16" instance=ExtResource("3_pftrp")]
-position = Vector2(1146, 809)
-
-[node name="PropBase8" parent="." index="17" instance=ExtResource("3_pftrp")]
-position = Vector2(967, 683)
-
-[node name="PropBase9" parent="." index="18" instance=ExtResource("3_pftrp")]
-position = Vector2(1097, 683)
-
-[node name="PropBase10" parent="." index="19" instance=ExtResource("3_pftrp")]
-position = Vector2(1040, 558)
+[node name="PropBase6" parent="." index="15" instance=ExtResource("4_fxnbq")]
+position = Vector2(1022, 634)

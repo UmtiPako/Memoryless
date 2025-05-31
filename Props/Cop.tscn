@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://8vxdspuv1lcj"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_wae10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdffs"]
+size = Vector2(93, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp2sx"]
+size = Vector2(114, 142)
+
+[node name="PropBase" instance=ExtResource("1_wae10")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(4.5, -3)
+shape = SubResource("RectangleShape2D_pdffs")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_gp2sx")

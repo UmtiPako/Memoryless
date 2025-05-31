@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1qdyk5uwt86f"]
+
+[ext_resource type="PackedScene" uid="uid://dwhkxegc4l62h" path="res://Props/propbase.tscn" id="1_8oypu"]
+[ext_resource type="Texture2D" uid="uid://bu20pgyqpgoyg" path="res://Scenes/Places/dışarı/assets/Ananas.png" id="2_cqbdq"]
+
+[node name="PropBase" instance=ExtResource("1_8oypu")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-10, -11.5)
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_cqbdq")
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(-1.5, -12.25)
