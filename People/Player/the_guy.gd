@@ -30,10 +30,9 @@ var random_start_catchprases: Array[String] = [
 	"Ha? Ne yapıyordum?",
 	"Zoinks!",
 	"NOLUYOR?",
-	"Bazinga!",
-	"Lorem ipsum dolor sit amet",
-	"Neden buradayım? Her şey akıp giderken – insanlar konuşur, şehirler uyanır, takvimler değişir – içimizde bir noktada dünya durur ve etrafımızdaki anlam ağları çözülmeye başlar. O an, sahip olduklarımızın, yaptıklarımızın ve inandıklarımızın üzerindeki ince sis kalkar ve biz, çıplak gerçeğimizle baş başa kalırız. Kimliğimiz, rollerimiz, başarılarımız birer kostüm gibi görünür; altında ise yalnızca düşünen, hisseden bir bilinç kalır. Belki de varoluşun sorusu bir cevap değil, bir uyanıştır. Her sabah yeniden anlam aramaya, her gece yeniden kaybolmaya cesaret edebilme halidir. Ve belki de yaşam, bu sorgunun kendisidir – sonsuz, rahatsız edici ama aynı zamanda özgürleştirici."
 ]
+
+var doors: Array[Node2D]
 
 func _ready() -> void:
 	display_random_dialogue(random_start_catchprases)
