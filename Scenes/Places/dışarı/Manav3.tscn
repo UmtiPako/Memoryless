@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv07d4hd23r4h"]
+
+[ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_lqyjc"]
+[ext_resource type="Texture2D" uid="uid://biveesco05o6v" path="res://Scenes/Places/dışarı/assets/Manav.png" id="2_2jjo6"]
+[ext_resource type="PackedScene" uid="uid://w1ytemwno1i1" path="res://Props/KayganZemin.tscn" id="3_ho4ip"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="4_x81s0"]
+[ext_resource type="PackedScene" uid="uid://b1qdyk5uwt86f" path="res://Props/Ananas.tscn" id="5_2jjo6"]
+
+[node name="Sahne0" instance=ExtResource("1_lqyjc")]
+
+[node name="bg" parent="." index="0"]
+texture = ExtResource("2_2jjo6")
+
+[node name="Enemy" parent="MoveArea" index="1" instance=ExtResource("4_x81s0")]
+position = Vector2(99, 964)
+
+[node name="Enemy2" parent="MoveArea" index="2" instance=ExtResource("4_x81s0")]
+position = Vector2(529, 412)
+
+[node name="Enemy3" parent="MoveArea" index="3" instance=ExtResource("4_x81s0")]
+position = Vector2(1427, 400)
+
+[node name="Enemy4" parent="MoveArea" index="4" instance=ExtResource("4_x81s0")]
+position = Vector2(1819, 994)
+
+[node name="The_Guy" parent="." index="5"]
+position = Vector2(917, 987)
+scale = Vector2(1.2, 1.2)
+
+[node name="PropBase" parent="." index="8" instance=ExtResource("3_ho4ip")]
+position = Vector2(538, 1055)
+scale = Vector2(2, 2)
+
+[node name="PropBase2" parent="." index="9" instance=ExtResource("3_ho4ip")]
+position = Vector2(547, 863)
+scale = Vector2(2, 2)
+
+[node name="PropBase3" parent="." index="10" instance=ExtResource("3_ho4ip")]
+position = Vector2(1331, 1016)
+scale = Vector2(2, 2)
+
+[node name="PropBase4" parent="." index="11" instance=ExtResource("3_ho4ip")]
+position = Vector2(1333, 829)
+scale = Vector2(2, 2)
+
+[node name="PropBase5" parent="." index="12" instance=ExtResource("5_2jjo6")]
+position = Vector2(1250, 621)
+
+[node name="PropBase6" parent="." index="13" instance=ExtResource("5_2jjo6")]
+position = Vector2(591, 676)
+rotation = 1.52367

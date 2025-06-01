@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bon3imnmhdkpj"]
+
+[ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_hu75j"]
+[ext_resource type="Texture2D" uid="uid://clx2jt0xg24e7" path="res://Scenes/Places/içeri/assets/BerberSalonu.png" id="2_o225p"]
+
+[node name="Sahne0" instance=ExtResource("1_hu75j")]
+
+[node name="bg" parent="." index="0"]
+texture = ExtResource("2_o225p")
+
+[node name="The_Guy" parent="." index="5"]
+scale = Vector2(1.2, 1.2)
