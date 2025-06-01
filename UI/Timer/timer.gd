@@ -1,8 +1,5 @@
 extends Timer
 
-@onready var label: Label = $CanvasLayer/Timer/Label
-
-
 var is_game_started: bool = false
 
 # Called when the node enters the scene tree for the first time.

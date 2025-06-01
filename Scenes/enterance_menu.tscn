@@ -4,21 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cfsiaoqlbxd2x" path="res://UI/drive-download-20250601T003218Z-1-001/StartButton.png" id="2_60d2y"]
 [ext_resource type="Script" uid="uid://pg77rmporbua" path="res://Scenes/start.gd" id="3_1bqb3"]
 
-[sub_resource type="Animation" id="Animation_1bqb3"]
-resource_name = "pop"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.47, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_l6fdg"]
 length = 0.001
 tracks/0/type = "value"
@@ -32,6 +17,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1bqb3"]
+resource_name = "pop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.47, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6celp"]
