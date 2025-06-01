@@ -102,10 +102,10 @@ func _physics_process(delta: float) -> void:
 			velocity = dash_direction * DASH_SPEED
 		else:
 			velocity = direction * SPEED
-		
-		animated_sprite_2d.play("Walk")
+			animated_sprite_2d.play("Walk")
+			
 	else:
-		if (animated_sprite_2d.animation == "Get_Hit" || animated_sprite_2d.animation == "Attack" ):
+		if (animated_sprite_2d.animation == "Get_Hit" || animated_sprite_2d.animation == "Attack" or animated_sprite_2d.animation == "Dash" ):
 			await animated_sprite_2d.animation_finished
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
@@ -114,6 +114,7 @@ func _physics_process(delta: float) -> void:
 		size_swap_reset = true 
 	
 	if Input.is_action_just_pressed("Dash") and !is_dashing and direction != Vector2.ZERO and player_alive:
+		animated_sprite_2d.play("Dash")
 		is_dashing = true
 		dash_direction = direction
 		$dashTimer.start()

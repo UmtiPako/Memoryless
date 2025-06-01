@@ -133,9 +133,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r6p3k")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dash",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -251,7 +251,7 @@ wait_time = 2.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -197)
 sprite_frames = SubResource("SpriteFrames_4h37l")
-animation = &"Death"
+animation = &"Dash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, -2)
