@@ -47,7 +47,10 @@ func check_death():
 
 func death():
 	animated_sprite_2d.play("Death")
+	$death_sfx.play()
 	await animated_sprite_2d.animation_finished
+	$deathTimer.start(0.5)
+	await $deathTimer.timeout
 	get_tree().change_scene_to_file("res://Scenes/lose.tscn")
 
 func display_dialogue(text: String):

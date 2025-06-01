@@ -97,7 +97,7 @@ func _physics_process(_delta: float):
 		move_and_slide()
 		return
 	
-	if animated_sprite_2d.animation == "Hurt":
+	if not is_dead and animated_sprite_2d.animation == "Hurt":
 		await animated_sprite_2d.animation_finished
 	
 	match current_state:
@@ -245,9 +245,9 @@ func take_damage():
 func _die():
 	enemy_health = -2
 	GameManager.enemy_killed.emit()
-
+	$death_sfx.play()
 	for node in get_children():
-		if node is not AnimatedSprite2D:
+		if node is not AnimatedSprite2D or AudioStreamPlayer2D:
 			node.queue_free()
 
 	#navigation_agent.navigation_finished.emit()
