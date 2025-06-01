@@ -33,6 +33,7 @@ var random_start_catchprases: Array[String] = [
 ]
 
 func _ready() -> void:
+	GameManager.set_enemy_count_in_room()
 	display_random_dialogue(random_start_catchprases)
 	
 
