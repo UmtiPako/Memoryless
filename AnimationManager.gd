@@ -14,6 +14,7 @@ func _ready() -> void:
 	add_child(transition_instance)
 
 	rect = transition_instance.get_node("ColorRect")
+	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	rect.modulate.a = 0.0
 
 func transition_to_scene(scene: PackedScene):
