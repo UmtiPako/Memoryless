@@ -1,14 +1,14 @@
 extends Timer
 
 var is_game_started: bool = false
+var timer_started = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if is_game_started:
-		start()
-	pass # Replace with function body.
-
+func _process(delta: float) -> void:
+	if is_game_started and not timer_started:
+		timer_started = true
+		print("timer started")
+		self.start(30)
 
 func _on_timeout() -> void:
-	#Load ending screen
+	get_tree().change_scene_to_file("res://Scenes/lose.tscn")
 	pass # Replace with function body.

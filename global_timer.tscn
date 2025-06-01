@@ -4,6 +4,7 @@
 
 [node name="Global_Timer" type="Timer"]
 wait_time = 30.0
+autostart = true
 script = ExtResource("1_c1aoi")
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]

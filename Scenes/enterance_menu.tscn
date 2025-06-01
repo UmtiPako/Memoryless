@@ -47,7 +47,7 @@ script = ExtResource("3_1bqb3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(2197, 540)
+position = Vector2(960, 540)
 texture = ExtResource("1_yp762")
 
 [node name="Start" type="Button" parent="."]
@@ -57,6 +57,7 @@ offset_top = 648.0
 offset_right = 1120.0
 offset_bottom = 882.0
 icon = ExtResource("2_60d2y")
+flat = true
 icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Start"]
@@ -64,11 +65,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_6celp")
 }
 
-[node name="begin" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "adsadada TES"
-
 [connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
-[connection signal="pressed" from="begin" to="." method="_on_begin_pressed"]

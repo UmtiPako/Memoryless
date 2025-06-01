@@ -1,6 +1,6 @@
 extends Control
 
-var first_scene : PackedScene = load("res://Scenes/Places/dışarı/sokak_3.tscn")
+var first_scene : PackedScene = load("res://UI/endings/Start.tscn")
 
 func _ready() -> void:
 	print("test")
