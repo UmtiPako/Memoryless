@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b357hut2rs7ro"]
+
+[ext_resource type="Texture2D" uid="uid://2a86fkxbfrcb" path="res://UI/endings/Giris.png" id="1_ubtvp"]
+[ext_resource type="Script" uid="uid://bouykarrko742" path="res://UI/endings/slideUp.gd" id="2_fbbmw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 778)
+texture = ExtResource("1_ubtvp")
+script = ExtResource("2_fbbmw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.8, 1.8)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 16.0
+
+[connection signal="timeout" from="Timer" to="Sprite2D" method="_on_timer_timeout"]

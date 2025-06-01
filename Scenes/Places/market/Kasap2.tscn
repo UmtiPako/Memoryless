@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1171vlguechj"]
+
+[ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_vyb6g"]
+[ext_resource type="Texture2D" uid="uid://ci3hwd6xb8xwe" path="res://Scenes/Places/market/assets/Kasap.png" id="2_25gur"]
+[ext_resource type="PackedScene" uid="uid://cvqo2npvvf3i1" path="res://Props/Makas.tscn" id="3_o38it"]
+[ext_resource type="PackedScene" uid="uid://b8bmwdbyc54lg" path="res://Props/Balta.tscn" id="4_eqsyf"]
+
+[node name="Sahne0" instance=ExtResource("1_vyb6g")]
+
+[node name="bg" parent="." index="0"]
+texture = ExtResource("2_25gur")
+
+[node name="The_Guy" parent="." index="5"]
+position = Vector2(918, 944)
+scale = Vector2(1.2, 1.2)
+
+[node name="PropBase" parent="." index="8" instance=ExtResource("3_o38it")]
+position = Vector2(461, 966)
+rotation = 1.5708
+
+[node name="PropBase2" parent="." index="9" instance=ExtResource("4_eqsyf")]
+position = Vector2(1623, 839)
+rotation = 0.785398
+
+[node name="PropBase3" parent="." index="10" instance=ExtResource("4_eqsyf")]
+position = Vector2(274, 864)
+rotation = -0.785398

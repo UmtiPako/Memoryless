@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dem0t0bfh3vjt"]
+
+[ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_r0dni"]
+[ext_resource type="Texture2D" uid="uid://ci3hwd6xb8xwe" path="res://Scenes/Places/market/assets/Kasap.png" id="2_8ycx1"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="3_0bav7"]
+[ext_resource type="PackedScene" uid="uid://b8bmwdbyc54lg" path="res://Props/Balta.tscn" id="4_86w6s"]
+[ext_resource type="PackedScene" uid="uid://sp5k2nao0nvc" path="res://Props/Domat.tscn" id="5_c37rn"]
+
+[node name="Sahne0" instance=ExtResource("1_r0dni")]
+
+[node name="bg" parent="." index="0"]
+texture = ExtResource("2_8ycx1")
+
+[node name="Enemy" parent="MoveArea" index="1" instance=ExtResource("3_0bav7")]
+position = Vector2(1416, 403)
+
+[node name="Enemy2" parent="MoveArea" index="2" instance=ExtResource("3_0bav7")]
+position = Vector2(263, 497)
+
+[node name="The_Guy" parent="." index="5"]
+position = Vector2(873, 998)
+scale = Vector2(1.2, 1.2)
+
+[node name="PropBase" parent="." index="8" instance=ExtResource("4_86w6s")]
+position = Vector2(503, 964)
+
+[node name="PropBase2" parent="." index="9" instance=ExtResource("5_c37rn")]
+position = Vector2(1333, 1004)

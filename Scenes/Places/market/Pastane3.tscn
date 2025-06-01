@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx843crlcy7xu"]
+
+[ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_q2oja"]
+[ext_resource type="Texture2D" uid="uid://cs7qs0nx5qt5" path="res://Scenes/Places/market/assets/Pastane.png" id="2_xh2s7"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="3_rsuge"]
+[ext_resource type="PackedScene" uid="uid://bf5alvrpvky6n" path="res://Props/Havuc.tscn" id="4_phoik"]
+
+[node name="Sahne0" instance=ExtResource("1_q2oja")]
+
+[node name="bg" parent="." index="0"]
+texture = ExtResource("2_xh2s7")
+
+[node name="PropBase" parent="." index="5" instance=ExtResource("4_phoik")]
+position = Vector2(899, 659)
+
+[node name="PropBase2" parent="." index="6" instance=ExtResource("4_phoik")]
+position = Vector2(808, 642)
+
+[node name="Enemy" parent="." index="7" instance=ExtResource("3_rsuge")]
+position = Vector2(1721, 907)
+
+[node name="Enemy2" parent="." index="8" instance=ExtResource("3_rsuge")]
+position = Vector2(129, 939)
+
+[node name="The_Guy" parent="." index="9"]
+scale = Vector2(1.2, 1.2)
+
+[node name="PropBase3" parent="." index="12" instance=ExtResource("4_phoik")]
+position = Vector2(859, 893)
+rotation = 0.785398
