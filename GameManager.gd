@@ -29,9 +29,6 @@ var player_health: int = 4
 
 var enemies_in_room: int
 
-func _process(delta: float) -> void:
-	pass
-
 func set_enemy_count_in_room() -> void:
 	var count = 0
 	for node in get_tree().current_scene.get_children():
