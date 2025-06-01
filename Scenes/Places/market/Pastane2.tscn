@@ -11,6 +11,7 @@
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_qudfu")
 
+
 [node name="PropBase4" parent="." index="5" instance=ExtResource("4_ba2mt")]
 position = Vector2(754, 634)
 
@@ -29,3 +30,4 @@ position = Vector2(1366, 857)
 
 [node name="PropBase3" parent="." index="12" instance=ExtResource("3_my4av")]
 position = Vector2(1019, 860)
+

@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=6 format=3 uid="uid://ck0egii05axqn"]
 
 [ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_85qbd"]
@@ -6,10 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://8vxdspuv1lcj" path="res://Props/Cop.tscn" id="4_htcml"]
 [ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="5_mw45f"]
 
+
 [node name="Sahne0" instance=ExtResource("1_85qbd")]
 
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_tb2ap")
+
 
 [node name="Enemy" parent="MoveArea" index="1" instance=ExtResource("5_mw45f")]
 position = Vector2(1406, 818)
@@ -25,3 +28,4 @@ scale = Vector2(2, 2)
 [node name="PropBase2" parent="." index="9" instance=ExtResource("4_htcml")]
 position = Vector2(1009, 826)
 scale = Vector2(2, 2)
+

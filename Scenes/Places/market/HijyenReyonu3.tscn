@@ -29,7 +29,9 @@ position = Vector2(798, 865)
 scale = Vector2(2, 2)
 
 [node name="PropBase3" parent="." index="12" instance=ExtResource("5_qqgc3")]
-position = Vector2(923, 799)
+
+position = Vector2(906, 655)
+
 scale = Vector2(2, 2)
 
 [node name="PropBase4" parent="." index="13" instance=ExtResource("5_qqgc3")]
