@@ -4,6 +4,7 @@
 
 [node name="SahneEv" instance=ExtResource("1_qn751")]
 
+
 [node name="Door" parent="." index="2"]
 SolEnabled = true
 SagEnabled = true
@@ -13,4 +14,5 @@ SolEnabled = true
 SagEnabled = true
 
 [node name="NavigationRegion2D" parent="." index="6"]
+
 position = Vector2(1, 0)

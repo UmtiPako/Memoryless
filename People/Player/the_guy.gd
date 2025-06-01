@@ -19,6 +19,7 @@ var size_swap_reset:bool = false
 
 var is_dashing: bool = false
 
+var active_area: Area2D
 
 @export var dash_duration: float = 0.2
 @export var dash_cooldown_time: float = 1.0
@@ -29,9 +30,6 @@ var random_start_catchprases: Array[String] = [
 	"Ha? Ne yapıyordum?",
 	"Zoinks!",
 	"NOLUYOR?",
-	"Bazinga!",
-	"Lorem ipsum dolor sit amet",
-	"Neden buradayım? Her şey akıp giderken – insanlar konuşur, şehirler uyanır, takvimler değişir – içimizde bir noktada dünya durur ve etrafımızdaki anlam ağları çözülmeye başlar. O an, sahip olduklarımızın, yaptıklarımızın ve inandıklarımızın üzerindeki ince sis kalkar ve biz, çıplak gerçeğimizle baş başa kalırız. Kimliğimiz, rollerimiz, başarılarımız birer kostüm gibi görünür; altında ise yalnızca düşünen, hisseden bir bilinç kalır. Belki de varoluşun sorusu bir cevap değil, bir uyanıştır. Her sabah yeniden anlam aramaya, her gece yeniden kaybolmaya cesaret edebilme halidir. Ve belki de yaşam, bu sorgunun kendisidir – sonsuz, rahatsız edici ama aynı zamanda özgürleştirici."
 ]
 
 func _ready() -> void:
@@ -58,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
 	
-	if Input.is_action_just_pressed("attack") && animated_sprite_2d.animation != "Get_Hit":
+	if Input.is_action_just_pressed("attack") && animated_sprite_2d.animation == "Idle":
 		attack()
 
 		
@@ -72,12 +70,14 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.scale.x = 1
 			$Area2D/CollisionShape2D.disabled = false
 			$Area2D2/CollisionShape2D.disabled = true
+			active_area = $Area2D
 
 		elif velocity.x < 0:
 			# Moving left - face left
 			animated_sprite_2d.scale.x = -1
 			$Area2D/CollisionShape2D.disabled = true
 			$Area2D2/CollisionShape2D.disabled = false
+			active_area = $Area2D2
 		
 		velocity = direction * SPEED
 		if is_dashing:
@@ -128,12 +128,10 @@ func attack():
 	
 	await animated_sprite_2d.animation_finished
 	
-	for enemy in $Area2D.get_overlapping_bodies():
+	for enemy in active_area.get_overlapping_bodies():
 		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
 			enemy.call("take_damage")
-	for enemy in $Area2D2.get_overlapping_bodies():
-		if  enemy.is_in_group("enemies") and enemy.has_method("take_damage"):
-			enemy.call("take_damage")
+
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false

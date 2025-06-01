@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var label: Label = $Timer/Label
+
 @onready var heart: Sprite2D = $Heart
 @onready var heart_2: Sprite2D = $Heart2
 @onready var heart_3: Sprite2D = $Heart3
@@ -14,6 +16,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_update_hearths()
+	_update_timer()
+	pass
+
+func _update_timer():
+	label.text = str(GlobalTimer.time_left)
 	pass
 
 func _update_hearths():

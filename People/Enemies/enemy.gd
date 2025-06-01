@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var is_dead:bool = false
 
+var fragment:PackedScene = preload("res://Props/Interactive/Fragment/fragment.tscn")
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var playerL: PackedScene
@@ -31,7 +33,8 @@ var current_state: State = State.IDLE
 
 func _ready():
 	
-	move_speed = randf_range(70,120)
+	move_speed = randf_range(100,150)
+	$DashDelay.wait_time = randf_range(0.8, 1.4)
 	GameManager.player_dashed.connect(player_dashed)
 	
 	# Attempt to find the player immediately
@@ -220,25 +223,27 @@ func set_target(target_node: Node2D):
 		current_state = State.IDLE
 
 func take_damage():
-	var tween = create_tween()
+	if enemy_health > 0:
+		var tween = create_tween()
 	
-	var direction = -1
+		var direction = -1
 	
-	if player.global_position.x - self.global_position.x < 0:
-		direction = 1
+		if player.global_position.x - self.global_position.x < 0:
+			direction = 1
 	
-	tween.tween_property(self, "global_position", Vector2(self.position.x +  30 * direction, self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	animated_sprite_2d.play("Hurt")
-	var tween2 = create_tween()
-	tween2.tween_method(func(value): modulate = Color.WHITE.lerp(Color.DIM_GRAY, 1.0 - value), 0.0, 1.0, 0.2)
-	await animated_sprite_2d.animation_finished
-	enemy_health -= 1
-	if enemy_health <= 0:
-		_die()
+		tween.tween_property(self, "global_position", Vector2(self.position.x +  30 * direction, self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		animated_sprite_2d.play("Hurt")
+		var tween2 = create_tween()
+		tween2.tween_method(func(value): modulate = Color.WHITE.lerp(Color.DIM_GRAY, 1.0 - value), 0.0, 1.0, 0.2)
+		await animated_sprite_2d.animation_finished
+		enemy_health -= 1
+		if enemy_health <= 0:
+			_die()
 
 func _die():
 	enemy_health = -2
-	
+	GameManager.enemy_killed.emit()
+
 	for node in get_children():
 		if node is not AnimatedSprite2D:
 			node.queue_free()
@@ -249,7 +254,13 @@ func _die():
 	current_state = State.DEAD
 	animated_sprite_2d.play("Dead")
 	await  animated_sprite_2d.animation_finished
-	
-	
+	_drop_fragment()
+
 func _on_dash_delay_timeout() -> void:
 	dash_delay = false
+
+func _drop_fragment():
+	var fragment_instance = fragment.instantiate()
+	fragment_instance.global_position = global_position
+	get_parent().add_child(fragment_instance)
+	pass

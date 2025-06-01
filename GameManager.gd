@@ -1,16 +1,26 @@
 extends Node
 
 signal player_dashed
+signal enemy_killed
 
-var scene1: PackedScene = preload("res://Scenes/test_level.tscn")
-var scene2: PackedScene = preload("res://Scenes/test_level_2.tscn")
+var ev_sahne: PackedScene = preload("res://Scenes/Places/ev/sahne_ev.tscn")
+var sokak1: PackedScene = preload("res://Scenes/Places/dışarı/sokak_1.tscn")
+var sokak2: PackedScene = preload("res://Scenes/Places/dışarı/sokak_2.tscn")
+var sokak3: PackedScene = preload("res://Scenes/Places/dışarı/sokak_3.tscn")
 
-var scenes: Array[PackedScene] = [scene1, scene2]
+var scenes: Array[PackedScene] = [ev_sahne, sokak1, sokak2, sokak3]
 
 var player_health: int = 4
 
+var enemies_in_room: int
+
 func _process(delta: float) -> void:
 	pass
+
+func set_enemy_count_in_room() -> void:
+	var count = get_tree().get_nodes_in_group("enemies").size()
+	enemies_in_room = count
+			
 
 func select_random_room() -> PackedScene:
 	return scenes[randf_range(0, len(scenes))]
