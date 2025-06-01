@@ -247,7 +247,7 @@ func _die():
 	GameManager.enemy_killed.emit()
 	$death_sfx.play()
 	for node in get_children():
-		if node is not AnimatedSprite2D or AudioStreamPlayer2D:
+		if node is not AnimatedSprite2D and node is not AudioStreamPlayer2D:
 			node.queue_free()
 
 	#navigation_agent.navigation_finished.emit()
