@@ -7,15 +7,16 @@ var enemy_count
 func _ready() -> void:
 	GameManager.set_enemy_count_in_room()
 	enemy_count = GameManager.enemies_in_room
-	if enemy_count == 0:
+	if enemy_count <= 0:
 		collision_shape_2d.disabled = false
 	else:
 		collision_shape_2d.disabled = true
 	GameManager.enemy_killed.connect(enemy_killed)
 	
 func enemy_killed():
+	print(enemy_count)
 	enemy_count -= 1
-	if enemy_count == 0:
+	if enemy_count <= 0:
 		collision_shape_2d.disabled = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
