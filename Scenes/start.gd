@@ -15,15 +15,6 @@ func _process(delta: float) -> void:
 
 func _on_button_down() -> void:
 	animation_player.play("pop")
-	await animation_player.animation_finished
-	GlobalTimer.is_game_started = true
-	get_tree().change_scene_to_file("res://Scenes/Places/dışarı/sokak_1.tscn")
-	pass # Replace with function body.
-
-
-func _on_button_button_down() -> void:
-	animation_player.play("pop")
-	await animation_player.animation_finished
 	GlobalTimer.is_game_started = true
 	get_tree().change_scene_to_file("res://Scenes/Places/dışarı/sokak_1.tscn")
 	pass # Replace with function body.

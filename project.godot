@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="A_World_Without_Memories"
-run/main_scene="uid://c1h2lljn02je5"
+run/main_scene="uid://dsobhjx7thhls"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
