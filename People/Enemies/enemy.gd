@@ -260,6 +260,7 @@ func _on_dash_delay_timeout() -> void:
 	dash_delay = false
 
 func _drop_fragment():
+	GlobalTimer.reset_timer()
 	var fragment_instance = fragment.instantiate()
 	fragment_instance.global_position = global_position
 	get_parent().add_child(fragment_instance)
