@@ -20,14 +20,16 @@ const KASAP_3 = preload("res://Scenes/Places/market/Kasap3.tscn")
 const PASTANE_1 = preload("res://Scenes/Places/market/Pastane1.tscn")
 const PASTANE_2 = preload("res://Scenes/Places/market/Pastane2.tscn")
 const PASTANE_3 = preload("res://Scenes/Places/market/Pastane3.tscn")
+const SUT = preload("res://Scenes/Places/market/Sut.tscn")
 
 var scenes: Array[PackedScene] = [ev_sahne, sokak1, sokak2, sokak3, 
 manav1, manav2, manav3, BERBER_1, HIJYEN_REYONU_1, HIJYEN_REYONU_2, HIJYEN_REYONU_3,
-KASAP_1, KASAP_2, KASAP_3, PASTANE_1, PASTANE_2, PASTANE_3]
+KASAP_1, KASAP_2, KASAP_3, PASTANE_1, PASTANE_2, PASTANE_3,SUT]
 
 var player_health: int = 4
 
 var enemies_in_room: int
+var room_spawn_count: int
 
 func set_enemy_count_in_room() -> void:
 	var count = 0
@@ -38,6 +40,9 @@ func set_enemy_count_in_room() -> void:
 			
 
 func select_random_room() -> PackedScene:
+	room_spawn_count += 1
+	if room_spawn_count == 14:
+		return SUT
 	return scenes[randf_range(0, len(scenes))]
 
 func hit_stop(timeScale, duration):

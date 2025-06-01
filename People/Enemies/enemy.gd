@@ -231,6 +231,10 @@ func take_damage():
 		if player.global_position.x - self.global_position.x < 0:
 			direction = 1
 	
+		$damage_sfx.stop()
+		$damage_sfx.play()
+
+	
 		tween.tween_property(self, "global_position", Vector2(self.position.x +  30 * direction, self.position.y), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		animated_sprite_2d.play("Hurt")
 		var tween2 = create_tween()
@@ -239,19 +243,17 @@ func take_damage():
 		enemy_health -= 1
 		if enemy_health <= 0:
 			_die()
-		else:
-			$damage_sfx.play(0)
 
 func _die():
 	enemy_health = -2
 	GameManager.enemy_killed.emit()
+	$damage_sfx.stop()
 	$death_sfx.play()
 	for node in get_children():
 		if node is not AnimatedSprite2D and node is not AudioStreamPlayer2D:
 			node.queue_free()
 
 	#navigation_agent.navigation_finished.emit()
-	
 	is_dead = true
 	current_state = State.DEAD
 	animated_sprite_2d.play("Dead")

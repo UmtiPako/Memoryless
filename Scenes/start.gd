@@ -3,7 +3,9 @@ extends Control
 var first_scene : PackedScene = load("res://UI/endings/Start.tscn")
 
 func _ready() -> void:
-	print("test")
+	GameManager.player_health = 4
+	GlobalTimer.stop_timer()
+	GameManager.room_spawn_count = 0
 
 
 func _on_start_button_down() -> void:
