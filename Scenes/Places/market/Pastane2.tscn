@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfl3d6ivuwx0a"]
+
+[ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_jjn7g"]
+[ext_resource type="Texture2D" uid="uid://cs7qs0nx5qt5" path="res://Scenes/Places/market/assets/Pastane.png" id="2_qudfu"]
+[ext_resource type="PackedScene" uid="uid://cw17bd0gdhbrd" path="res://Props/Pasta.tscn" id="3_my4av"]
+[ext_resource type="PackedScene" uid="uid://cvu7p77ghufo8" path="res://Props/Sise.tscn" id="4_ba2mt"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="5_ba2mt"]
+
+[node name="Sahne0" instance=ExtResource("1_jjn7g")]
+
+[node name="bg" parent="." index="0"]
+texture = ExtResource("2_qudfu")
+
+[node name="Enemy" parent="." index="5" instance=ExtResource("5_ba2mt")]
+position = Vector2(1691, 862)
+scale = Vector2(1.2, 1.2)
+
+[node name="The_Guy" parent="." index="6"]
+scale = Vector2(1.2, 1.2)
+
+[node name="PropBase" parent="." index="9" instance=ExtResource("3_my4av")]
+position = Vector2(1198, 855)
+
+[node name="PropBase2" parent="." index="10" instance=ExtResource("3_my4av")]
+position = Vector2(1366, 857)
+
+[node name="PropBase3" parent="." index="11" instance=ExtResource("3_my4av")]
+position = Vector2(1019, 860)
+
+[node name="PropBase4" parent="." index="12" instance=ExtResource("4_ba2mt")]
+position = Vector2(754, 634)
