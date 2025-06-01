@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3mvqn7ex25a5"]
+[gd_scene load_steps=6 format=3 uid="uid://d3mvqn7ex25a5"]
 
 [ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_5g8lt"]
 [ext_resource type="Texture2D" uid="uid://dw1vkw0ww8pci" path="res://Scenes/Places/market/assets/Sür ürünleri.png" id="2_xi01j"]
-[ext_resource type="PackedScene" uid="uid://dh3co6ye3n85j" path="res://Props/Sut.tscn" id="3_xi01j"]
+[ext_resource type="Script" uid="uid://csm2pqsm227oj" path="res://Scenes/Places/market/takesut.gd" id="3_bq72y"]
+[ext_resource type="Texture2D" uid="uid://b7bmvk5iw7m7n" path="res://Scenes/Places/market/assets/HiPaint_1748741677001.png" id="3_xi01j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq72y"]
+size = Vector2(266, 666)
 
 [node name="Sahne0" instance=ExtResource("1_5g8lt")]
 
@@ -12,5 +16,15 @@ texture = ExtResource("2_xi01j")
 [node name="The_Guy" parent="." index="5"]
 scale = Vector2(1.2, 1.2)
 
-[node name="PropBase" parent="." index="8" instance=ExtResource("3_xi01j")]
-position = Vector2(1129, 495)
+[node name="Area2D" type="Area2D" parent="." index="8"]
+position = Vector2(1122, 500)
+script = ExtResource("3_bq72y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" index="0"]
+texture = ExtResource("3_xi01j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="1"]
+position = Vector2(13, 158)
+shape = SubResource("RectangleShape2D_bq72y")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
