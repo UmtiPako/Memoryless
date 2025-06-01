@@ -5,6 +5,8 @@ var rect: ColorRect
 
 var initialized := false
 
+var is_transitioning = false
+
 func _ready() -> void:
 	if initialized:
 		return
@@ -17,10 +19,12 @@ func _ready() -> void:
 	rect.modulate.a = 0.0
 
 func transition_to_scene(scene: PackedScene):
-	fade_out(0.5)
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_packed(scene)
-	fade_in(0.5)
+	if !is_transitioning:
+		is_transitioning = true
+		fade_out(0.5)
+		await get_tree().create_timer(0.5).timeout
+		get_tree().change_scene_to_packed(scene)
+		fade_in(0.5)
 
 func fade_out(duration: float):
 	var tween = create_tween()
@@ -29,3 +33,4 @@ func fade_out(duration: float):
 func fade_in(duration: float):
 	var tween = create_tween()
 	tween.tween_property(rect, "modulate:a", 0.0, duration)
+	is_transitioning = false
