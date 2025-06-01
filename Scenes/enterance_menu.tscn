@@ -43,9 +43,11 @@ _data = {
 [node name="enterance Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("3_1bqb3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
+z_index = -1
+position = Vector2(2197, 540)
 texture = ExtResource("1_yp762")
 
 [node name="Start" type="Button" parent="."]
@@ -56,20 +58,17 @@ offset_right = 1120.0
 offset_bottom = 882.0
 icon = ExtResource("2_60d2y")
 icon_alignment = 1
-script = ExtResource("3_1bqb3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Start"]
 libraries = {
 &"": SubResource("AnimationLibrary_6celp")
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="begin" type="Button" parent="."]
 layout_mode = 0
-offset_left = 787.0
-offset_top = 643.0
-offset_right = 1000.0
-offset_bottom = 832.0
-scale = Vector2(1.55634, 1.27312)
+offset_right = 8.0
+offset_bottom = 8.0
+text = "adsadada TES"
 
-[connection signal="button_down" from="Start" to="Start" method="_on_button_down"]
-[connection signal="button_down" from="Button" to="Start" method="_on_button_button_down"]
+[connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
+[connection signal="pressed" from="begin" to="." method="_on_begin_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlnyffosgqtus"]
+
+[ext_resource type="Texture2D" uid="uid://ekoee0rdtyrm" path="res://UI/endings/toplu.png" id="1_7gcck"]
+[ext_resource type="Script" uid="uid://bouykarrko742" path="res://UI/endings/slideUp.gd" id="2_0v70u"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 647)
+texture = ExtResource("1_7gcck")
+script = ExtResource("2_0v70u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.8, 1.8)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 16.0
+
+[connection signal="timeout" from="Timer" to="Sprite2D" method="_on_timer_timeout"]

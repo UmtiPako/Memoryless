@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh3co6ye3n85j"]
+
+[ext_resource type="Script" uid="uid://cvro6ta85s8t8" path="res://Props/propbase.gd" id="1_u1srf"]
+[ext_resource type="Texture2D" uid="uid://b7bmvk5iw7m7n" path="res://Scenes/Places/market/assets/HiPaint_1748741677001.png" id="2_u1srf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwfgf"]
+size = Vector2(90, 163)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41dhe"]
+size = Vector2(119, 192)
+
+[node name="PropBase" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 3
+mass = 0.1
+script = ExtResource("1_u1srf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_qwfgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u1srf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.5, -6)
+shape = SubResource("RectangleShape2D_41dhe")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -11,11 +11,12 @@
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_qyx8g")
 
-[node name="The_Guy" parent="." index="5"]
-scale = Vector2(1.2, 1.2)
 
-[node name="PropBase" parent="." index="8" instance=ExtResource("3_gqqnj")]
+[node name="PropBase" parent="." index="5" instance=ExtResource("3_gqqnj")]
 position = Vector2(719, 664)
+
+[node name="The_Guy" parent="." index="6"]
+scale = Vector2(1.2, 1.2)
 
 [node name="PropBase2" parent="." index="9" instance=ExtResource("4_tn7e2")]
 position = Vector2(159, 851)

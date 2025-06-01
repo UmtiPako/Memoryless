@@ -1,29 +1,16 @@
-extends Button
+extends Control
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+var first_scene : PackedScene = load("res://Scenes/Places/dışarı/sokak_3.tscn")
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("test")
+
+
+func _on_start_button_down() -> void:
+	get_tree().change_scene_to_packed(first_scene)
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_button_down() -> void:
-	animation_player.play("pop")
-	await animation_player.animation_finished
-	GlobalTimer.is_game_started = true
-	get_tree().change_scene_to_file("res://Scenes/Places/dışarı/sokak_1.tscn")
-	pass # Replace with function body.
-
-
-func _on_button_button_down() -> void:
-	animation_player.play("pop")
-	await animation_player.animation_finished
-	GlobalTimer.is_game_started = true
-	get_tree().change_scene_to_file("res://Scenes/Places/dışarı/sokak_1.tscn")
+func _on_begin_pressed() -> void:
+	get_tree().change_scene_to_packed(first_scene)
 	pass # Replace with function body.

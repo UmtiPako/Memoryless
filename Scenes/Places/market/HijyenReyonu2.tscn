@@ -12,21 +12,23 @@
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_q1y7e")
 
-[node name="Enemy" parent="." index="5" instance=ExtResource("6_v3nx6")]
+
+[node name="PropBase4" parent="." index="5" instance=ExtResource("3_l7sxq")]
+position = Vector2(869, 687)
+
+[node name="Enemy" parent="." index="6" instance=ExtResource("6_v3nx6")]
 position = Vector2(1699, 918)
 
-[node name="The_Guy" parent="." index="6"]
+[node name="The_Guy" parent="." index="7"]
 scale = Vector2(1.2, 1.2)
 
-[node name="PropBase" parent="." index="9" instance=ExtResource("3_l7sxq")]
+[node name="PropBase" parent="." index="10" instance=ExtResource("3_l7sxq")]
 position = Vector2(798, 881)
 
-[node name="PropBase2" parent="." index="10" instance=ExtResource("4_ubcu3")]
+[node name="PropBase2" parent="." index="11" instance=ExtResource("4_ubcu3")]
 position = Vector2(966, 904)
 
-[node name="PropBase3" parent="." index="11" instance=ExtResource("5_kmdt8")]
+[node name="PropBase3" parent="." index="12" instance=ExtResource("5_kmdt8")]
 position = Vector2(652, 882)
 scale = Vector2(2, 2)
 
-[node name="PropBase4" parent="." index="12" instance=ExtResource("3_l7sxq")]
-position = Vector2(869, 687)
