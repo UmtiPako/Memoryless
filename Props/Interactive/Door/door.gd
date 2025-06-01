@@ -5,7 +5,7 @@ extends Node2D
 var enemy_count
 
 func _ready() -> void:
-	await get_tree().process_frame
+	GameManager.set_enemy_count_in_room()
 	enemy_count = GameManager.enemies_in_room
 	if enemy_count <= 0:
 		collision_shape_2d.disabled = false
@@ -23,6 +23,6 @@ func enemy_killed():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		collision_shape_2d.set_deferred("disabled", true)
+		collision_shape_2d.disabled = true
 		#collision_shape_2d.disabled = true
 		AnimationManager.transition_to_scene(GameManager.select_random_room())

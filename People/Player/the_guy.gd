@@ -34,14 +34,16 @@ var random_start_catchprases: Array[String] = [
 ]
 
 func _ready() -> void:
-	GameManager.set_enemy_count_in_room()
+	GameManager.enemy_killed.connect(enemy_killed)
 	display_random_dialogue(random_start_catchprases)
 	
+	
+func enemy_killed():
+		display_dialogue("Oh doğru, süt alacaktım!")
 
 func check_death():
 	if GameManager.player_health <= 0 and player_alive:
 		player_alive = false
-		print("dying")
 		death()
 
 

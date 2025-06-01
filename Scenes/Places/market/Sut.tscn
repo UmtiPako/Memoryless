@@ -13,6 +13,9 @@ size = Vector2(266, 666)
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_xi01j")
 
+[node name="Heart4" parent="CanvasLayer" index="3"]
+visible = false
+
 [node name="Polygon2D" parent="MoveArea" index="0"]
 polygon = PackedVector2Array(33, 1073, 1882, 1076, 1839, 910, 54, 907)
 

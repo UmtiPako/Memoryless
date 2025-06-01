@@ -19,3 +19,8 @@ func _on_timeout() -> void:
 func reset_timer():
 	start(30)
 	ringing = false
+
+func stop_timer():
+	timer_started = false
+	is_game_started = false
+	stop()
