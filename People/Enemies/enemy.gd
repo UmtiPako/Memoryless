@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var is_dead:bool = false
 
+var fragment:PackedScene = preload("res://Props/Interactive/Fragment/fragment.tscn")
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var playerL: PackedScene
@@ -252,7 +254,13 @@ func _die():
 	current_state = State.DEAD
 	animated_sprite_2d.play("Dead")
 	await  animated_sprite_2d.animation_finished
-	
-	
+	_drop_fragment()
+
 func _on_dash_delay_timeout() -> void:
 	dash_delay = false
+
+func _drop_fragment():
+	var fragment_instance = fragment.instantiate()
+	fragment_instance.global_position = global_position
+	get_parent().add_child(fragment_instance)
+	pass

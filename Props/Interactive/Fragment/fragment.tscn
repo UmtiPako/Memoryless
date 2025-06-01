@@ -1,23 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlgfq15w5joum"]
+[gd_scene load_steps=7 format=3 uid="uid://dlgfq15w5joum"]
 
 [ext_resource type="Script" uid="uid://dro43qa68nxwq" path="res://Props/Interactive/Fragment/fragment.gd" id="1_iblex"]
+[ext_resource type="Texture2D" uid="uid://b080dh4vsp1oi" path="res://Props/Interactive/Fragment/drive-download-20250531T231647Z-1-001/HiPaint_1748714133261.png" id="2_sx3fk"]
+[ext_resource type="Texture2D" uid="uid://cunvq4olryk4j" path="res://Props/Interactive/Fragment/drive-download-20250531T231647Z-1-001/HiPaint_1748714110813.png" id="3_tut71"]
+[ext_resource type="Texture2D" uid="uid://bw1ut2aceg2qg" path="res://Props/Interactive/Fragment/drive-download-20250531T231647Z-1-001/HiPaint_1748717299777.png" id="4_6l4vv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iblex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sx3fk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tut71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6l4vv")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 1.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkq0q"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_iblex"]
 
 [node name="Area_2" type="Area2D"]
 script = ExtResource("1_iblex")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iblex")
+animation = &"Open"
+frame_progress = 0.779082
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dkq0q")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0.880604, 0, 0.433471, 1)
-rotation = 0.785398
-scale = Vector2(16, 16)
-mesh = SubResource("BoxMesh_iblex")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
