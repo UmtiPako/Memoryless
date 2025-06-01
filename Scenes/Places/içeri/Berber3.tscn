@@ -1,12 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://bon3imnmhdkpj"]
+[gd_scene load_steps=7 format=3 uid="uid://bon3imnmhdkpj"]
 
 [ext_resource type="PackedScene" uid="uid://catujxkkpafh6" path="res://Scenes/Places/Sahne_0.tscn" id="1_hu75j"]
 [ext_resource type="Texture2D" uid="uid://clx2jt0xg24e7" path="res://Scenes/Places/içeri/assets/BerberSalonu.png" id="2_o225p"]
+[ext_resource type="PackedScene" uid="uid://w1ytemwno1i1" path="res://Props/KayganZemin.tscn" id="3_5gyen"]
+[ext_resource type="PackedScene" uid="uid://cvqo2npvvf3i1" path="res://Props/Makas.tscn" id="4_lyvyd"]
+[ext_resource type="PackedScene" uid="uid://c88is0id8spox" path="res://Props/Sprey.tscn" id="5_kdmxq"]
+[ext_resource type="PackedScene" uid="uid://bif4i1b6swes2" path="res://People/Enemies/enemy.tscn" id="6_h24iu"]
 
 [node name="Sahne0" instance=ExtResource("1_hu75j")]
 
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_o225p")
 
-[node name="The_Guy" parent="." index="5"]
+[node name="PropBase2" parent="MoveArea" index="1" instance=ExtResource("4_lyvyd")]
+position = Vector2(981, 615)
+rotation = 1.5708
+
+[node name="Enemy" parent="." index="5" instance=ExtResource("6_h24iu")]
+position = Vector2(1629, 928)
+
+[node name="The_Guy" parent="." index="6"]
+position = Vector2(247, 977)
 scale = Vector2(1.2, 1.2)
+
+[node name="PropBase" parent="." index="9" instance=ExtResource("3_5gyen")]
+position = Vector2(554, 881)
+scale = Vector2(2, 2)
+
+[node name="PropBase3" parent="." index="10" instance=ExtResource("5_kdmxq")]
+position = Vector2(1097, 867)
