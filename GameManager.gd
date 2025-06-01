@@ -12,18 +12,14 @@ var scenes: Array[PackedScene] = [ev_sahne, sokak1, sokak2, sokak3]
 
 var player_health: int = 4
 
-var enemies_in_room
+var enemies_in_room: int
 
 func _process(delta: float) -> void:
 	pass
 
 func set_enemy_count_in_room() -> void:
-	var count = 0
-	for node in get_tree().current_scene.get_children():
-		if node.is_in_group("enemies"):
-			count += 1
+	var count = get_tree().get_nodes_in_group("enemies").size()
 	enemies_in_room = count
-
 			
 
 func select_random_room() -> PackedScene:

@@ -32,8 +32,6 @@ var random_start_catchprases: Array[String] = [
 	"NOLUYOR?",
 ]
 
-var doors: Array[Node2D]
-
 func _ready() -> void:
 	display_random_dialogue(random_start_catchprases)
 	
