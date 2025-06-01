@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _update_timer():
-	print(" timer: " + str(GlobalTimer.time_left))
 	label.text = str(GlobalTimer.time_left)
 	pass
 

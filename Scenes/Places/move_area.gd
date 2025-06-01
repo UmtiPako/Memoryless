@@ -85,7 +85,6 @@ func clamp_global_position(global_target_pos: Vector2) -> Vector2:
 	var min_y: float = min(_top_left.y, _top_right.y)
 	var max_y: float = max(_bottom_left.y, _bottom_right.y)
 	clamped_local_pos.y = clamp(local_target_pos.y, min_y, max_y)
-	print("clamped_local_pos: " + str(clamped_local_pos.y))
 	# 2. Calculate X boundaries for the clamped_local_pos.y using linear interpolation
 	var t: float = 0.0
 	if max_y - min_y > 0.001: # Avoid division by zero

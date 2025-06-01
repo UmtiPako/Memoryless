@@ -16,6 +16,7 @@ var dash_direction := Vector2.ZERO
 
 var lookin_right : bool = true
 var size_swap_reset:bool = false
+var player_alive = true
 
 var is_dashing: bool = false
 
@@ -37,6 +38,20 @@ func _ready() -> void:
 	display_random_dialogue(random_start_catchprases)
 	
 
+func check_death():
+	if GameManager.player_health <= 0 and player_alive:
+		player_alive = false
+		print("dying")
+		death()
+
+
+func death():
+	print("a")
+	animated_sprite_2d.play("Death")
+	print("b")
+	await animated_sprite_2d.animation_finished
+	get_tree().change_scene_to_file("res://Scenes/lose.tscn")
+
 func display_dialogue(text: String):
 	for letter in text:
 		dialogue.text += letter
@@ -57,15 +72,17 @@ func _physics_process(delta: float) -> void:
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
 	
-	if Input.is_action_just_pressed("attack") && animated_sprite_2d.animation == "Idle":
+	check_death()
+	
+	if Input.is_action_just_pressed("attack") && animated_sprite_2d.animation == "Idle" and player_alive:
 		attack()
 
-		
+	
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("ui_left", "ui_right","ui_up","ui_down")
-	if direction:
+	if direction and player_alive:
 		if velocity.x > 0:
 			# Moving right - face right
 			animated_sprite_2d.scale.x = 1
@@ -85,17 +102,19 @@ func _physics_process(delta: float) -> void:
 			velocity = dash_direction * DASH_SPEED
 		else:
 			velocity = direction * SPEED
-		
-		animated_sprite_2d.play("Walk")
+			animated_sprite_2d.play("Walk")
+			
 	else:
-		if (animated_sprite_2d.animation == "Get_Hit" || animated_sprite_2d.animation == "Attack" ):
+		if (animated_sprite_2d.animation == "Get_Hit" || animated_sprite_2d.animation == "Attack" or animated_sprite_2d.animation == "Dash" ):
 			await animated_sprite_2d.animation_finished
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-		animated_sprite_2d.play("Idle")
+		if player_alive:
+			animated_sprite_2d.play("Idle")
 		size_swap_reset = true 
 	
-	if Input.is_action_just_pressed("Dash") and !is_dashing and direction != Vector2.ZERO:
+	if Input.is_action_just_pressed("Dash") and !is_dashing and direction != Vector2.ZERO and player_alive:
+		animated_sprite_2d.play("Dash")
 		is_dashing = true
 		dash_direction = direction
 		$dashTimer.start()
