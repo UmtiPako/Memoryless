@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b55d52yemkhvc"
-path="res://.godot/imported/sfx_hit.wav-4eaca1bafbc882333a6f35a44f268a76.sample"
+uid="uid://u0ooc0lvbrl2"
+path="res://.godot/imported/sfx_dodge.wav-cc897248cc4f50e0ae6d3f721f4dc018.sample"
 
 [deps]
 
-source_file="res://SOUND/sfx_hit.wav"
-dest_files=["res://.godot/imported/sfx_hit.wav-4eaca1bafbc882333a6f35a44f268a76.sample"]
+source_file="res://SOUND/sfx/sfx_dodge.wav"
+dest_files=["res://.godot/imported/sfx_dodge.wav-cc897248cc4f50e0ae6d3f721f4dc018.sample"]
 
 [params]
 

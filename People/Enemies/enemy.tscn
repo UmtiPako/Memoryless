@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bif4i1b6swes2"]
+[gd_scene load_steps=30 format=3 uid="uid://bif4i1b6swes2"]
 
 [ext_resource type="Script" uid="uid://do2mmx6xxf5o5" path="res://People/Enemies/enemy.gd" id="1_oaxwq"]
 [ext_resource type="PackedScene" uid="uid://cc2f3uo2nkn21" path="res://People/Player/the_guy.tscn" id="2_435rb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dfem77blv58x3" path="res://People/Enemies/drive-download-20250531T153044Z-1-001/Hurt.png" id="4_435rb"]
 [ext_resource type="Texture2D" uid="uid://kqqoshmkorih" path="res://People/Enemies/drive-download-20250531T153044Z-1-001/İdle.png" id="5_435rb"]
 [ext_resource type="Texture2D" uid="uid://c1ehx52udn5fs" path="res://People/Enemies/drive-download-20250531T153044Z-1-001/Run.png" id="6_435rb"]
+[ext_resource type="AudioStream" uid="uid://b55d52yemkhvc" path="res://SOUND/sfx/sfx_hit.wav" id="8_6xn8s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
 size = Vector2(83.5, 418)
@@ -213,6 +214,9 @@ shape = SubResource("CapsuleShape2D_hghv2")
 
 [node name="DashDelay" type="Timer" parent="."]
 wait_time = 1.2
+
+[node name="damage_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_6xn8s")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_body_entered"]

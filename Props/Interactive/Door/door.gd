@@ -23,5 +23,6 @@ func enemy_killed():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		collision_shape_2d.disabled = true
+		collision_shape_2d.set_deferred("disabled", true)
+		#collision_shape_2d.disabled = true
 		AnimationManager.transition_to_scene(GameManager.select_random_room())

@@ -46,9 +46,7 @@ func check_death():
 
 
 func death():
-	print("a")
 	animated_sprite_2d.play("Death")
-	print("b")
 	await animated_sprite_2d.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/lose.tscn")
 
@@ -115,6 +113,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Dash") and !is_dashing and direction != Vector2.ZERO and player_alive:
 		animated_sprite_2d.play("Dash")
+		$dash_sfx.play(0)
 		is_dashing = true
 		dash_direction = direction
 		$dashTimer.start()

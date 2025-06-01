@@ -12,6 +12,9 @@
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_vqhmw")
 
+[node name="Polygon2D" parent="MoveArea" index="0"]
+polygon = PackedVector2Array(33, 1073, 1882, 1076, 1864, 909, 36, 897)
+
 [node name="PropBase" parent="." index="5" instance=ExtResource("3_73dft")]
 position = Vector2(1071, 841)
 

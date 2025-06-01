@@ -239,6 +239,8 @@ func take_damage():
 		enemy_health -= 1
 		if enemy_health <= 0:
 			_die()
+		else:
+			$damage_sfx.play(0)
 
 func _die():
 	enemy_health = -2

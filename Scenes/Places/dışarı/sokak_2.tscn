@@ -11,12 +11,18 @@
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_ieihe")
 
+[node name="Polygon2D" parent="MoveArea" index="0"]
+polygon = PackedVector2Array(33, 1073, 1882, 1076, 1839, 910, 30, 935)
+
 [node name="Enemy" parent="." index="5" instance=ExtResource("3_pcbnl")]
 position = Vector2(1151, 933)
 scale = Vector2(0.8, 0.8)
 
 [node name="The_Guy" parent="." index="6"]
 scale = Vector2(0.8, 0.8)
+
+[node name="NavigationRegion2D" parent="." index="7"]
+visible = false
 
 [node name="PropBase" parent="." index="9" instance=ExtResource("4_kkypl")]
 position = Vector2(158, 879)

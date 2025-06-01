@@ -43,9 +43,7 @@ func _initialize_bounds_from_polygon():
 		printerr("PlayerMovementArea: BoundaryPolygon must have exactly 4 points to define a trapezoid. It has ", raw_polygon_points.size())
 		_is_initialized = false
 		return
-	
-	print(raw_polygon_points)
-	
+		
 		 # --- Fix for Issue 2: Transform points to MovementArea's local space ---
 	var points_in_parent_space: PackedVector2Array = PackedVector2Array()
 	var poly_transform_to_parent: Transform2D = _boundary_polygon.transform # Gets local transform relative to parent

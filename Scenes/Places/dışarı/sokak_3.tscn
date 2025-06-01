@@ -10,6 +10,9 @@
 [node name="bg" parent="." index="0"]
 texture = ExtResource("2_fxnbq")
 
+[node name="Polygon2D" parent="MoveArea" index="0"]
+polygon = PackedVector2Array(33, 1073, 1882, 1076, 1884, 925, 38, 923)
+
 [node name="Enemy" parent="." index="5" instance=ExtResource("3_fxnbq")]
 position = Vector2(1142, 388)
 scale = Vector2(0.8, 0.8)
