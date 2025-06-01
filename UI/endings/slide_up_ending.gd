@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 	
 	if not over:
 		self.position.y = self.position.y -80*delta
-	
+
 func _ready() -> void:
 	timer.start()
 

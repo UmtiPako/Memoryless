@@ -20,12 +20,14 @@ position = Vector2(1416, 403)
 [node name="Enemy2" parent="MoveArea" index="2" instance=ExtResource("3_0bav7")]
 position = Vector2(263, 497)
 
-[node name="The_Guy" parent="." index="5"]
+[node name="PropBase" parent="." index="5" instance=ExtResource("4_86w6s")]
+position = Vector2(503, 964)
+mass = 0.1
+
+[node name="PropBase2" parent="." index="6" instance=ExtResource("5_c37rn")]
+position = Vector2(1333, 1004)
+mass = 0.1
+
+[node name="The_Guy" parent="." index="7"]
 position = Vector2(873, 998)
 scale = Vector2(1.2, 1.2)
-
-[node name="PropBase" parent="." index="8" instance=ExtResource("4_86w6s")]
-position = Vector2(503, 964)
-
-[node name="PropBase2" parent="." index="9" instance=ExtResource("5_c37rn")]
-position = Vector2(1333, 1004)

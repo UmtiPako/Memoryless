@@ -18,17 +18,20 @@ polygon = PackedVector2Array(33, 1073, 1882, 1076, 1839, 910, 30, 935)
 position = Vector2(1151, 933)
 scale = Vector2(0.8, 0.8)
 
-[node name="The_Guy" parent="." index="6"]
+[node name="PropBase" parent="." index="6" instance=ExtResource("4_kkypl")]
+position = Vector2(158, 879)
+mass = 0.1
+
+[node name="PropBase2" parent="." index="7" instance=ExtResource("5_8brxy")]
+position = Vector2(1463, 867)
+mass = 0.1
+
+[node name="PropBase3" parent="." index="8" instance=ExtResource("5_8brxy")]
+position = Vector2(1692, 872)
+mass = 0.1
+
+[node name="The_Guy" parent="." index="9"]
 scale = Vector2(0.8, 0.8)
 
-[node name="NavigationRegion2D" parent="." index="7"]
+[node name="NavigationRegion2D" parent="." index="10"]
 visible = false
-
-[node name="PropBase" parent="." index="9" instance=ExtResource("4_kkypl")]
-position = Vector2(158, 879)
-
-[node name="PropBase2" parent="." index="10" instance=ExtResource("5_8brxy")]
-position = Vector2(1463, 867)
-
-[node name="PropBase3" parent="." index="11" instance=ExtResource("5_8brxy")]
-position = Vector2(1692, 872)

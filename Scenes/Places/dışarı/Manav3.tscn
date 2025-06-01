@@ -26,29 +26,35 @@ position = Vector2(1427, 400)
 [node name="Enemy4" parent="MoveArea" index="4" instance=ExtResource("4_x81s0")]
 position = Vector2(1819, 994)
 
-[node name="The_Guy" parent="." index="5"]
-position = Vector2(917, 987)
-scale = Vector2(1.2, 1.2)
-
-[node name="PropBase" parent="." index="8" instance=ExtResource("3_ho4ip")]
+[node name="PropBase" parent="." index="5" instance=ExtResource("3_ho4ip")]
 position = Vector2(538, 1055)
 scale = Vector2(2, 2)
+mass = 0.1
 
-[node name="PropBase2" parent="." index="9" instance=ExtResource("3_ho4ip")]
+[node name="PropBase2" parent="." index="6" instance=ExtResource("3_ho4ip")]
 position = Vector2(547, 863)
 scale = Vector2(2, 2)
+mass = 0.1
 
-[node name="PropBase3" parent="." index="10" instance=ExtResource("3_ho4ip")]
+[node name="PropBase3" parent="." index="7" instance=ExtResource("3_ho4ip")]
 position = Vector2(1331, 1016)
 scale = Vector2(2, 2)
+mass = 0.1
 
-[node name="PropBase4" parent="." index="11" instance=ExtResource("3_ho4ip")]
+[node name="PropBase4" parent="." index="8" instance=ExtResource("3_ho4ip")]
 position = Vector2(1333, 829)
 scale = Vector2(2, 2)
+mass = 0.1
 
-[node name="PropBase5" parent="." index="12" instance=ExtResource("5_2jjo6")]
+[node name="PropBase5" parent="." index="9" instance=ExtResource("5_2jjo6")]
 position = Vector2(1250, 621)
+mass = 0.1
 
-[node name="PropBase6" parent="." index="13" instance=ExtResource("5_2jjo6")]
+[node name="PropBase6" parent="." index="10" instance=ExtResource("5_2jjo6")]
 position = Vector2(591, 676)
 rotation = 1.52367
+mass = 0.1
+
+[node name="The_Guy" parent="." index="11"]
+position = Vector2(917, 987)
+scale = Vector2(1.2, 1.2)
